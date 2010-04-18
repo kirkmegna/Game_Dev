@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :real_estates
+  has_many :bought_stocks
+  has_many :stocks, :through => :bought_stocks
   JOB_TYPES = %w(high middle low)
   
   validates_inclusion_of :job, :in => JOB_TYPES
@@ -13,9 +16,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login
   
   validates_format_of :password, :with => /^[0-9a-z]{6,20}$/i
- 
-  
-  
   
   def is_upper_class_job?
     job=="high"

@@ -9,7 +9,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100418041119) do
+ActiveRecord::Schema.define(:version => 20100418065555) do
+
+  create_table "bought_stocks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "stock_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "real_estates", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "style"
+    t.integer  "cashflow"
+    t.integer  "number_owned"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stocks", :force => true do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"
