@@ -40,14 +40,21 @@ class User < ActiveRecord::Base
   def is_lower_class_job?
     job=="low"
   end
- 
+  
   def cashflow
-    job_hours*payrate
+    monthly_job_cashflow+monthly_real_estate_cashflow
   end
- # def a cashflow function (kirk.cashflow) to give me the total cashflow from RE and Job
+ 
+  def monthly_job_cashflow #currently assumes 22 working days per month
+    job_hours*payrate*(22)
+  end
+  
+  def monthly_real_estate_cashflow
+    real_estates.inject(0) {|houseincome,x| houseincome + x.total_rent}
+  end
  
   def net_stock_value
-    bought_stocks.inject(0) {|value,x| value + x.current_value}
+    bought_stocks.inject(0) {|stockvalue,x| stockvalue + x.current_value}
   end
   
 end

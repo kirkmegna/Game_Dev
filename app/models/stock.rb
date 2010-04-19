@@ -13,6 +13,6 @@ class Stock < ActiveRecord::Base
   validates_inclusion_of :value, :in => 1..150 
   validates_format_of :value, :with => /^[0-9]{1,3}$/
   
-  validates_format_of :name, :with => /^[0-9a-z]{8,30}$/i
+  validates_format_of :name, :with => /^[0-9a-z ]{8,30}$/i
   
 end
