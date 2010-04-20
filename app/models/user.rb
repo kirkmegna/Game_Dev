@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   #=> User(id: integer, login: string, password: string, name: string, job: string, 
   #         job_hours: integer, created_at: datetime, updated_at: datetime)
   
+  # Do I need a cash on hand model? or an assets model? something that tells me total worth of real estate+stocks if i sell?
+  
   has_many :real_estates
   has_many :bought_stocks
   has_many :stocks, :through => :bought_stocks
@@ -18,7 +20,6 @@ class User < ActiveRecord::Base
   validates_inclusion_of :job_hours, :in => 0..8, :if => :is_lower_class_job?
   
   validates_format_of :name, :with => /^[0-9a-z_ \-\.]{3,20}$/i
-  
   
   validates_format_of :login, :with => /^[0-9a-z]{3,15}$/i
   validates_uniqueness_of :login
