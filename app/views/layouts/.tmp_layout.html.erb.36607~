@@ -6,7 +6,6 @@
 	</head>
 	<body>
 		<%=yield%>
-		<br/>
 		<%=link_to "Stocks", stocks_path %>
 		<%=link_to "Real Estate", real_estate_path%>
 				

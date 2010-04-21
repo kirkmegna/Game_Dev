@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
- 
+  layout nil 
   skip_before_filter :check_if_we_need_a_login, :only => :login
  
   def login

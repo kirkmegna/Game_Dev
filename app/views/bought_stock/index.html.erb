@@ -1,19 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>Untitled Document</title>
-	</head>
-	<body>
 		
-		<% @stocks.each do |stock|%>
-		<p><%=stock.name%></p>
-		<p><%=number_to_currency stock.value%></p>
-		<p><%= (current_user.bought_stocks.detect {|x| x.stock_id == stock.id}).try(:quantity) || 0 %></p>
-		<%=link_to "Purchase", buy_stocks_path(stock.id)%>
-		<%=link_to "Sell", sell_stocks_path(stock.id)%>
-		<br/>
-		<%end%>
 		
-	</body>
-</html>
+		
+		
+		
+		
+<% @stocks.each do |stock|%>
+<p><%=stock.name%></p>
+<p><%=number_to_currency stock.value%></p>
+<p><%= (current_user.bought_stocks.detect {|x| x.stock_id == stock.id}).try(:quantity) || 0 %></p>
+
+<%=link_to "Purchase", buy_stocks_path(stock.id)%>
+<%=link_to "Sell", sell_stocks_path(stock.id)%>
+<br/>
+<%end%>

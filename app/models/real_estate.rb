@@ -6,21 +6,23 @@ class RealEstate < ActiveRecord::Base
   
    # styles:
    HOUSE_TYPES = %w(3Br/2Ba 2Br/1Ba Duplex 4-plex 8-plex)
-   
-   validates_numericality_of :cost, :greater_than_or_equal_to => 0
-   
+      
    validates_inclusion_of :style, :in => HOUSE_TYPES
-   
-   validates_presence_of :user_id
  
    validates_inclusion_of :cashflow, :in => -100..150, :if => :is_2br_1ba?
    validates_inclusion_of :cashflow, :in => -100..200, :if => :is_3br_2ba?
    validates_inclusion_of :cashflow, :in => -100..300, :if => :is_duplex?
    validates_inclusion_of :cashflow, :in => -150..600, :if => :is_4_plex?
-   validates_inclusion_of :cashflow, :in => -300..1200, :if => :is_8_plex? 
+   validates_inclusion_of :cashflow, :in => -300..1200, :if => :is_8_plex?
    
-   def self.random_house
-     #Fill this out using random stuff blahblahblah
+   validates_inclusion_of :cost, :in => 40000..65000, :if => :is_2br_1ba?
+   validates_inclusion_of :cost, :in => 65000..85000, :if => :is_3br_2ba?
+   validates_inclusion_of :cost, :in => 85000..105000, :if => :is_duplex?
+   validates_inclusion_of :cost, :in => 105000..135000, :if => :is_4_plex?
+   validates_inclusion_of :cost, :in => 135000..170000, :if => :is_8_plex?
+   
+   def self.new_house
+     RealEstate.create(:style => "3Br/2Ba", :cost => 65000, :cashflow => 150)
    end
    
    def total_rent

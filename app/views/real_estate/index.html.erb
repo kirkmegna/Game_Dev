@@ -1,0 +1,20 @@
+
+
+<h4>Current Real Estate you Own</h4>
+<% @real_estate.each do |home|%>
+<%=home.style%>
+value=<%=number_to_currency home.cost%>
+cashflow=<%=number_to_currency home.total_rent%>
+<%=link_to "Sell", sell_real_estate_path(home.id)%>
+<br/>
+<%end%>
+
+<h4>Would you like to purchase this house?</h4>
+
+Style=<%=@home.style%><br/>
+Cost=<%=number_to_currency @home.cost%><br/>
+Cashflow=<%=number_to_currency @home.cashflow%>
+<br/>
+<%=link_to "Purchase", buy_real_estate_path%>
+<%=link_to "Next House", "#"%>
+<br/>
