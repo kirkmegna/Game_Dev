@@ -1,6 +1,6 @@
 class RealEstateController < ApplicationController
 
-  def list
+  def index
   end
   def show
   end

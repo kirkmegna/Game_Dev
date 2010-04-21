@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
   
   #=> User(id: integer, login: string, password: string, name: string, job: string, 
-  #         job_hours: integer, created_at: datetime, updated_at: datetime)
+  #         job_hours: integer, created_at: datetime, updated_at: datetime, cash: integer)
   
-  # Do I need a cash on hand model? or an assets model? something that tells me total worth of real estate+stocks if i sell?
-  
+ 
   has_many :real_estates
   has_many :bought_stocks
   has_many :stocks, :through => :bought_stocks
