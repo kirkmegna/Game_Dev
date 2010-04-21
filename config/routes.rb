@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.stocks "stocks", :controller => :bought_stock, :action => :index
   map.buy_stocks "stocks/:id/buy", :controller => :bought_stock, :action => :buy 
+  map.sell_stocks "stocks/:id/sell", :controller => :bought_stock, :action => :sell
   
   # The priority is based upon order of creation: first created -> highest priority.
 

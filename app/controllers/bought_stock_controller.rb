@@ -22,6 +22,18 @@ class BoughtStockController < ApplicationController
   end
   
   def sell
+    @stock = Stock.find(params[:id])
+    @sell = BoughtStock.find(@stock.id)
+    if @sell.quantity <= 0
+      flash[:note] = "No more stocks to sell!"
+      redirect_to :action => "index"
+      return
+    end
+    current_user.cash += @stock.value
+    @sell.quantity = @sell.quantity-1
+    current_user.save
+    @sell.save
+    redirect_to :action => "index"
     
   end
 

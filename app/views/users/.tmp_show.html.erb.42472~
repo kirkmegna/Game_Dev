@@ -6,7 +6,6 @@ cashflow=<%=number_to_currency current_user.cashflow%><br/>
 job=<%=current_user.job%><br/>
 payrate=<%=number_to_currency current_user.payrate%><br/>
 Stock Value=<%=number_to_currency current_user.net_stock_value%><br/>
-Total Cash=<%=number_to_currency current_user.cash%>
 
 
 <br/>

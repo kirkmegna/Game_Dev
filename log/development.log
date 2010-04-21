@@ -1358,3 +1358,414 @@ Rendering users/show
   [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
   [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
 Completed in 196ms (View: 179, DB: 8) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-21 03:08:31) [GET]
+
+ActionController::RoutingError (No route matches "/home" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-21 03:08:37) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."password" IS NULL AND "users"."login" IS NULL) LIMIT 1[0m
+Rendering session/login
+Completed in 298ms (View: 62, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-21 03:08:47) [POST]
+  Parameters: {"authenticity_token"=>"Y4/S8GuER2J79niOKbmYQ3FSkGul9VsByqreUGiZ8cI=", "login"=>"kirk", "password"=>"password"}
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."password" = 'password' AND "users"."login" = 'kirk') LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed in 86ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-21 03:08:47) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.6ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 268ms (View: 231, DB: 8) | 200 OK [http://localhost/users/1]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:08:57) [GET]
+  [4;35;1mStock Load (2.5ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.8ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 136ms (View: 102, DB: 5) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.1ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 1) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:02', "cash" = 99859 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.6ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:02', "quantity" = 50 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/stocks
+Completed in 112ms (DB: 5) | 302 Found [http://localhost/stocks/1/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:02) [GET]
+  [4;36;1mStock Load (1.6ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.4ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 96ms (View: 65, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mBoughtStock Load (0.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 2) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:04', "cash" = 99874 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (0.4ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:04', "quantity" = 43 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/stocks
+Completed in 151ms (DB: 3) | 302 Found [http://localhost/stocks/2/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:04) [GET]
+  [4;35;1mStock Load (1.7ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (3.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 95ms (View: 62, DB: 6) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mBoughtStock Load (1.4ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 3) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:08', "cash" = 99877 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.5ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:08', "quantity" = 1 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/stocks
+Completed in 100ms (DB: 4) | 302 Found [http://localhost/stocks/3/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:08) [GET]
+  [4;36;1mStock Load (8.4ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.4ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 87ms (View: 55, DB: 13) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:09) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+  [4;36;1mBoughtStock Load (0.8ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 4) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:09', "cash" = 99997 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (1.6ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:10', "quantity" = 0 WHERE "id" = 4[0m
+Redirected to http://localhost:3000/stocks
+Completed in 95ms (DB: 5) | 302 Found [http://localhost/stocks/4/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:10) [GET]
+  [4;35;1mStock Load (9.3ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 88ms (View: 57, DB: 12) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:11) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+  [4;35;1mBoughtStock Load (0.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 4) [0m
+Redirected to http://localhost:3000/stocks
+Completed in 106ms (DB: 2) | 302 Found [http://localhost/stocks/4/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:11) [GET]
+  [4;36;1mStock Load (1.8ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.6ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 90ms (View: 59, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:12) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+  [4;36;1mBoughtStock Load (0.9ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 4) [0m
+Redirected to http://localhost:3000/stocks
+Completed in 42ms (DB: 1) | 302 Found [http://localhost/stocks/4/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:12) [GET]
+  [4;35;1mStock Load (1.6ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.4ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 85ms (View: 56, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mBoughtStock Load (0.8ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 3) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:15', "cash" = 100000 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.4ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:15', "quantity" = 0 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/stocks
+Completed in 89ms (DB: 4) | 302 Found [http://localhost/stocks/3/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:15) [GET]
+  [4;36;1mStock Load (1.7ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 88ms (View: 64, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:16) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mStock Load (3.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mBoughtStock Load (0.8ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 3) [0m
+Redirected to http://localhost:3000/stocks
+Completed in 43ms (DB: 4) | 302 Found [http://localhost/stocks/3/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:16) [GET]
+  [4;35;1mStock Load (1.7ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.8ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 92ms (View: 61, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#buy (for 127.0.0.1 at 2010-04-21 03:09:17) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.0ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."user_id" = 1 AND "bought_stocks"."stock_id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:17', "cash" = 99997 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.4ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:17', "quantity" = 1 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/stocks
+Completed in 93ms (DB: 4) | 302 Found [http://localhost/stocks/3/buy]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:18) [GET]
+  [4;36;1mStock Load (1.8ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 147ms (View: 114, DB: 7) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mBoughtStock Load (0.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:19', "cash" = 100000 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (0.5ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:19', "quantity" = 0 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/stocks
+Completed in 99ms (DB: 4) | 302 Found [http://localhost/stocks/3/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:19) [GET]
+  [4;35;1mStock Load (1.6ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.6ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 83ms (View: 60, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mBoughtStock Load (0.9ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 2) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:21', "cash" = 100015 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.5ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:21', "quantity" = 42 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/stocks
+Completed in 100ms (DB: 4) | 302 Found [http://localhost/stocks/2/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:21) [GET]
+  [4;36;1mStock Load (1.6ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 161ms (View: 134, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mBoughtStock Load (0.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 2) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:21', "cash" = 100030 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (0.5ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:21', "quantity" = 41 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/stocks
+Completed in 119ms (DB: 4) | 302 Found [http://localhost/stocks/2/sell]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:09:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mBoughtStock Load (0.8ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 2) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:09:22', "cash" = 100045 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (0.5ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:09:22', "quantity" = 40 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/stocks
+Completed in 94ms (DB: 4) | 302 Found [http://localhost/stocks/2/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:09:22) [GET]
+  [4;35;1mStock Load (1.7ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 86ms (View: 59, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:10:34) [GET]
+  [4;36;1mStock Load (1.8ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 85ms (View: 57, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-21 03:10:41) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 120ms (View: 104, DB: 6) | 200 OK [http://localhost/users/1]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:10:49) [GET]
+  [4;36;1mStock Load (1.6ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.4ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 88ms (View: 65, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-21 03:12:16) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 116ms (View: 102, DB: 6) | 200 OK [http://localhost/users/1]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:12:25) [GET]
+  [4;36;1mStock Load (1.9ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 88ms (View: 59, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#buy (for 127.0.0.1 at 2010-04-21 03:12:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (0.8ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."user_id" = 1 AND "bought_stocks"."stock_id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-21 07:12:30', "cash" = 100010 WHERE "id" = 1[0m
+  [4;36;1mBoughtStock Update (0.4ms)[0m   [0;1mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:12:31', "quantity" = 51 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/stocks
+Completed in 96ms (DB: 6) | 302 Found [http://localhost/stocks/1/buy]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:12:31) [GET]
+  [4;35;1mStock Load (1.2ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 83ms (View: 59, DB: 3) | 200 OK [http://localhost/stocks]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-21 03:12:38) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (2.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (19.3ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 189ms (View: 156, DB: 25) | 200 OK [http://localhost/users/1]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:12:41) [GET]
+  [4;35;1mStock Load (1.7ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 93ms (View: 63, DB: 4) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-21 03:12:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (0.9ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 1) [0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-21 07:12:44', "cash" = 100045 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.5ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-21 07:12:44', "quantity" = 50 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/stocks
+Completed in 94ms (DB: 4) | 302 Found [http://localhost/stocks/1/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-21 03:12:44) [GET]
+  [4;36;1mStock Load (11.9ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (1.4ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 184ms (View: 128, DB: 14) | 200 OK [http://localhost/stocks]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-21 03:12:47) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 180ms (View: 164, DB: 6) | 200 OK [http://localhost/users/1]
