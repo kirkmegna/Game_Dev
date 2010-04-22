@@ -57,4 +57,8 @@ class User < ActiveRecord::Base
     bought_stocks.inject(0) {|stockvalue,x| stockvalue + x.current_value}
   end
   
+  def net_real_estate_value
+    real_estates.inject(0) {|housecost,x| housecost + x.cost}
+  end
+  
 end

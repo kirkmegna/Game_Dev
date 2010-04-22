@@ -6,11 +6,10 @@ class SessionController < ApplicationController
     user=User.find_by_login_and_password(params[:login], params[:password])
     if user
       session[:user_id]= user.id
-      flash[:note] = "You are real!!!"
+      flash[:note] = "Successful login"
       redirect_to user_path(user)
-    else
-      flash[:note] = "Login name/password is incorrect! Please try again or create a new user."
     end
+
   end
 
 end

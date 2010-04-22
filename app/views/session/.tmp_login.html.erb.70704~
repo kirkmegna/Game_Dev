@@ -6,3 +6,6 @@
 	<input type="submit" value="Login"/>
 <%end%>
 
+<div class="comment">
+	<%= flash[:note]%>
+	</div>

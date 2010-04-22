@@ -1,0 +1,71 @@
+body {margin:0px; background-color:black; font-family: "Times New Roman", Times, serif; text-align:center;}
+
+div#page {
+	position:relative;
+	width:600px;
+	height:450px;
+	color:white;
+	background-color:#202020;	
+    margin:25px auto;
+	border:3px solid gray;
+	padding:0px 0px 50px;
+}
+
+.note{
+	position:absolute;
+	top:0px;
+	right:0px;
+	border:5px solid gray;
+	width:150px;
+	background-color:#151515;
+	vertical-align:middle;
+	padding:0px;
+	height:50px;
+	}
+
+.note #flash{
+	color:green; 
+}
+
+.note h4{
+	border-style:solid;
+	border-color:gray;
+	vertical-align:top;
+	border-width:0px 0px 2px;
+	padding:0px;
+	margin:0px;
+}
+
+div.menu {
+	position:absolute;
+	bottom:5px;
+	border:3px solid gray;
+	width:600px;
+	text-align:center;
+}
+
+div.contain_left{
+	top:70px;
+	left:100px;
+}
+
+div.contain_center{
+	top:70px;
+	left:300px;
+}
+
+div.contain_right{
+	top:200px;
+	left:200px;	
+}
+
+.contain_left, .contain_center, .contain_right{
+	width:200px;
+	border:3px solid gray;
+	height:100px;
+	position:absolute;
+}
+
+.contain_left p, .contain_center p, .contain_right p{
+	color:green;
+}

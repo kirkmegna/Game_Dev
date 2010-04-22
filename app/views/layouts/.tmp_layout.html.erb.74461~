@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Entrepreneurs Live</title>
+	</head>
+	<body>
+		<%=yield%>
+		<br/>
+		<%=link_to "Stocks", stocks_path %>
+		<%=link_to "Real Estate", real_estate_path%>
+				
+	</body>
+</html>
