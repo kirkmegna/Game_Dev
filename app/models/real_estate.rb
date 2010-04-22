@@ -5,7 +5,23 @@ class RealEstate < ActiveRecord::Base
   belongs_to :user
   
    # styles:
-   HOUSE_TYPES = %w(3Br/2Ba 2Br/1Ba Duplex 4-plex 8-plex)
+  HOUSE_TYPES = %w(3Br/2Ba 2Br/1Ba Duplex 4-plex 8-plex)
+   
+  COST = {
+    "2Br/1Ba" => (40000..65000), 
+    "3Br/2Ba" => (65000..85000), 
+    "Duplex" => (85000..105000), 
+    "4-plex" => (105000..135000), 
+    "8-plex" => (135000..170000)
+  }
+  
+  CASHFLOW = {
+    "2Br/1Ba" => (-100..150), 
+    "3Br/2Ba" => (-100..200), 
+    "Duplex" => (-100..300), 
+    "4-plex" => (-150..600), 
+    "8-plex" => (-300..1200)
+  }
       
    validates_inclusion_of :style, :in => HOUSE_TYPES
  
@@ -22,7 +38,10 @@ class RealEstate < ActiveRecord::Base
    validates_inclusion_of :cost, :in => 135000..170000, :if => :is_8_plex?
    
    def self.new_house
-     RealEstate.create(:style => "3Br/2Ba", :cost => 65000, :cashflow => 150)
+     style=HOUSE_TYPES.rand
+     cost=rand(COST[style].last-COST[style].first)+COST[style].first
+     cashflow=rand(CASHFLOW[style].last+CASHFLOW[style].first)-CASHFLOW[style].first
+     RealEstate.create(:style => style, :cost => cost, :cashflow => cashflow)
    end
    
    def total_rent

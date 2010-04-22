@@ -10,11 +10,15 @@ cashflow=<%=number_to_currency home.total_rent%>
 <%end%>
 
 <h4>Would you like to purchase this house?</h4>
-
-Style=<%=@home.style%><br/>
-Cost=<%=number_to_currency @home.cost%><br/>
-Cashflow=<%=number_to_currency @home.cashflow%>
+<% @home.each do |home|%>
+Style=<%=home.style%><br/>
+Cost=<%=number_to_currency home.cost%><br/>
+Cashflow=<%=number_to_currency home.cashflow%>
 <br/>
-<%=link_to "Purchase", buy_real_estate_path%>
-<%=link_to "Next House", "#"%>
+<%=link_to "Purchase", buy_real_estate_path(home.id)%>
+<%end%>
+<%if @home.empty?%>
+Sorry! There are no homes available for purchase at this time.<br/>
+Try again later.
+<%end%>
 <br/>

@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.buy_stocks "stocks/:id/buy", :controller => :bought_stock, :action => :buy 
   map.sell_stocks "stocks/:id/sell", :controller => :bought_stock, :action => :sell
   map.real_estate "real_estate", :controller => :real_estate, :action => :index
-  map.buy_real_estate "real_estate/buy", :controller => :real_estate, :action => :buy
+  map.buy_real_estate "real_estate/:id/buy", :controller => :real_estate, :action => :buy
   map.sell_real_estate "real_estate/:id/sell", :controller => :real_estate, :action => :sell
  
   

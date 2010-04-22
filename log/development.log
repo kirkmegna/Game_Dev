@@ -10615,3 +10615,621 @@ Rendering users/show
   [4;36;1mStock Load (1.4ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
   [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
 Completed in 202ms (View: 186, DB: 7) | 200 OK [http://localhost/users/1]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-22 18:19:16) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."password" IS NULL AND "users"."login" IS NULL) LIMIT 1[0m
+Rendering session/login
+Completed in 289ms (View: 97, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-22 18:19:24) [POST]
+  Parameters: {"authenticity_token"=>"6fTxiwyOJTSKACxxmW8K2HawS/cZaGhjXzAB6yzB7AY=", "login"=>"kirk", "password"=>"password"}
+  [4;35;1mUser Load (13.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."password" = 'password' AND "users"."login" = 'kirk') LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed in 79ms (DB: 13) | 302 Found [http://localhost/login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 18:19:24) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (1.3ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 412ms (View: 391, DB: 9) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 18:19:32) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (4.2ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 175ms (View: 155, DB: 10) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:19:34) [GET]
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Create (1.9ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:19:34', 65000, '2010-04-22 22:19:34', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 116ms (View: 42, DB: 4) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 18:19:36) [GET]
+  [4;35;1mRealEstate Load (0.2ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) LIMIT 1[0m
+  [4;36;1mRealEstate Delete all (8.3ms)[0m   [0;1mDELETE FROM "real_estates" WHERE ("id" IN (116)) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 69ms (DB: 10) | 302 Found [http://localhost/real_estate/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:19:36) [GET]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Create (0.8ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:19:36', 65000, '2010-04-22 22:19:36', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 83ms (View: 18, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 18:19:39) [GET]
+  Parameters: {"id"=>"111"}
+  [4;36;1mRealEstate Load (1.0ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."id" = 111) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Delete all (5.3ms)[0m   [0;1mDELETE FROM "real_estates" WHERE ("id" IN (111)) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (4.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 22:19:39', "cash" = 91925 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 84ms (DB: 12) | 302 Found [http://localhost/real_estate/111/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:19:39) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Create (1.0ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:19:39', 65000, '2010-04-22 22:19:39', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 216ms (View: 78, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-22 18:19:42) [GET]
+  [4;36;1mStock Load (1.9ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/layout
+Rendering bought_stock/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (2.3ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 205ms (View: 176, DB: 5) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#sell (for 127.0.0.1 at 2010-04-22 18:19:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mBoughtStock Load (0.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."id" = 3) [0m
+Redirected to http://localhost:3000/stocks
+Completed in 92ms (DB: 1) | 302 Found [http://localhost/stocks/3/sell]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-22 18:19:45) [GET]
+  [4;35;1mStock Load (2.1ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/layout
+Rendering bought_stock/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 91ms (View: 64, DB: 5) | 200 OK [http://localhost/stocks]
+
+
+Processing BoughtStockController#buy (for 127.0.0.1 at 2010-04-22 18:19:47) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (0.9ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks"."user_id" = 1 AND "bought_stocks"."stock_id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 22:19:47', "cash" = 91922 WHERE "id" = 1[0m
+  [4;35;1mBoughtStock Update (0.6ms)[0m   [0mUPDATE "bought_stocks" SET "updated_at" = '2010-04-22 22:19:47', "quantity" = 1 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/stocks
+Completed in 101ms (DB: 4) | 302 Found [http://localhost/stocks/3/buy]
+
+
+Processing BoughtStockController#index (for 127.0.0.1 at 2010-04-22 18:19:47) [GET]
+  [4;36;1mStock Load (1.9ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/layout
+Rendering bought_stock/index
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBoughtStock Load (6.5ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+Completed in 103ms (View: 69, DB: 10) | 200 OK [http://localhost/stocks]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:19:49) [GET]
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.6ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Create (0.8ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:19:49', 65000, '2010-04-22 22:19:49', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 85ms (View: 12, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 18:19:51) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 117ms (View: 103, DB: 6) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:24:54) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Create (0.7ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:24:54', 65000, '2010-04-22 22:24:54', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 122ms (View: 30, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:24:54) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Create (0.7ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:24:54', 65000, '2010-04-22 22:24:54', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 85ms (View: 13, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 18:25:09) [GET]
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 22:25:09', "cash" = 26922 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.6ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-22 22:25:09', "user_id" = 1 WHERE "id" = 117[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 91ms (DB: 4) | 302 Found [http://localhost/real_estate/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:25:10) [GET]
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Create (0.7ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:25:10', 65000, '2010-04-22 22:25:10', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 138ms (View: 15, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 18:26:14) [GET]
+  Parameters: {"id"=>"117"}
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."id" = 117) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Delete all (6.1ms)[0m   [0mDELETE FROM "real_estates" WHERE ("id" IN (117)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-22 22:26:14', "cash" = 91922 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 83ms (DB: 9) | 302 Found [http://localhost/real_estate/117/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:26:14) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Create (1.1ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:26:14', 65000, '2010-04-22 22:26:14', NULL, 150, '3Br/2Ba')[0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 80ms (View: 13, DB: 2) | 200 OK [http://localhost/real_estate]
+  [4;36;1mUser Load (4.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mRealEstate Load (4.6ms)[0m   [0mSELECT * FROM "real_estates" [0m
+  [4;36;1mRealEstate Load (5.6ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
+  [4;35;1mRealEstate Destroy (1.2ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 118[0m
+  [4;36;1mRealEstate Destroy (0.5ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 119[0m
+  [4;35;1mRealEstate Destroy (0.5ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 120[0m
+  [4;36;1mRealEstate Destroy (1.1ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 121[0m
+  [4;35;1mRealEstate Destroy (0.5ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 122[0m
+  [4;36;1mRealEstate Destroy (0.5ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 123[0m
+  [4;35;1mRealEstate Destroy (0.5ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 124[0m
+  [4;36;1mRealEstate Destroy (0.5ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 125[0m
+  [4;35;1mRealEstate Destroy (0.4ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 126[0m
+  [4;36;1mRealEstate Destroy (0.5ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 127[0m
+  [4;35;1mRealEstate Destroy (0.5ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 128[0m
+  [4;36;1mRealEstate Destroy (0.6ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 129[0m
+  [4;35;1mRealEstate Destroy (0.7ms)[0m   [0mDELETE FROM "real_estates" WHERE "id" = 130[0m
+  [4;36;1mRealEstate Destroy (0.6ms)[0m   [0;1mDELETE FROM "real_estates" WHERE "id" = 131[0m
+  [4;35;1mRealEstate Load (0.5ms)[0m   [0mSELECT * FROM "real_estates" [0m
+  [4;36;1mRealEstate Create (1.0ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 22:47:14', 65000, '2010-04-22 22:47:14', NULL, 150, '3Br/2Ba')[0m
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:47:44) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #13 of app/views/real_estate/index.html.erb:
+10: <%end%>
+11: 
+12: <h4>Would you like to purchase this house?</h4>
+13: <% @home.each do |home|%>
+14: Style=<%=home.style%><br/>
+15: Cost=<%=number_to_currency home.cost%><br/>
+16: Cashflow=<%=number_to_currency home.cashflow%>
+
+    app/views/real_estate/index.html.erb:13
+
+Rendered rescues/_trace (99.5ms)
+Rendered rescues/_request_and_response (3.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:50:24) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (1.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+
+ActionView::TemplateError (buy_real_estate_url failed to generate from {:controller=>"real_estate", :action=>"buy"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["real_estate", :id, "buy"] - are they all satisfied?) on line #18 of app/views/real_estate/index.html.erb:
+15: Cost=<%=number_to_currency home.cost%><br/>
+16: Cashflow=<%=number_to_currency home.cashflow%>
+17: <br/>
+18: <%=link_to "Purchase", buy_real_estate_path%>
+19: <%end%>
+20: <br/>
+
+    (eval):20:in `buy_real_estate_path'
+    app/views/real_estate/index.html.erb:18
+    app/views/real_estate/index.html.erb:13:in `each'
+    app/views/real_estate/index.html.erb:13
+
+Rendered rescues/_trace (111.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:51:08) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 85ms (View: 28, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 18:51:13) [GET]
+  Parameters: {"id"=>"132"}
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '132') LIMIT 1[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 22:51:13', "cash" = 26922 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.6ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-22 22:51:13', "user_id" = 1 WHERE "id" = 132[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 99ms (DB: 4) | 302 Found [http://localhost/real_estate/132/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:51:14) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 74ms (View: 17, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:54:24) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (3.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 81ms (View: 25, DB: 5) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:54:40) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 86ms (View: 28, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 18:55:31) [GET]
+  Parameters: {"id"=>"132"}
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."id" = 132) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Delete all (6.6ms)[0m   [0mDELETE FROM "real_estates" WHERE ("id" IN (132)) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-22 22:55:31', "cash" = 91922 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 106ms (DB: 10) | 302 Found [http://localhost/real_estate/132/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:55:31) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 122ms (View: 4, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 18:55:34) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.6ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 131ms (View: 113, DB: 7) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 18:55:41) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (3.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 58ms (View: 4, DB: 4) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:04:31) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (0.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 57ms (View: 4, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:04:32) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 59ms (View: 4, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 19:05:07) [GET]
+  Parameters: {"id"=>"132"}
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" = 1 AND "real_estates"."id" = '132') LIMIT 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 210ms (DB: 2) | 302 Found [http://localhost/real_estate/132/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:05:08) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 60ms (View: 7, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 19:05:46) [GET]
+  Parameters: {"id"=>"132"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" = 1 AND "real_estates"."id" = '132') LIMIT 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 81ms (DB: 1) | 302 Found [http://localhost/real_estate/132/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:05:46) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 62ms (View: 5, DB: 2) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 19:05:54) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 124ms (View: 110, DB: 5) | 200 OK [http://localhost/users/1]
+  [4;35;1mSQL (2.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mRealEstate Create (4.4ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 23:32:48', 65000, '2010-04-22 23:32:48', NULL, 150, '3Br/2Ba')[0m
+  [4;35;1mSQL (24.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" LIMIT 1[0m
+  [4;35;1mRealEstate Delete all (6.6ms)[0m   [0mDELETE FROM "real_estates" WHERE ("id" IN (133)) [0m
+  [4;36;1mRealEstate Create (0.7ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 23:33:49', 101067, '2010-04-22 23:33:49', NULL, 117, 'Duplex')[0m
+  [4;35;1mRealEstate Create (1.1ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 23:33:58', 110850, '2010-04-22 23:33:58', NULL, 540, '4-plex')[0m
+  [4;36;1mRealEstate Create (2.1ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 23:34:01', 56415, '2010-04-22 23:34:01', NULL, 100, '2Br/1Ba')[0m
+  [4;35;1mRealEstate Create (0.7ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-22 23:34:03', 86436, '2010-04-22 23:34:03', NULL, 146, 'Duplex')[0m
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:08) [GET]
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (1.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 156ms (View: 26, DB: 4) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 19:34:17) [GET]
+  Parameters: {"id"=>"134"}
+  [4;35;1mRealEstate Load (1.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '134') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 63ms (DB: 2) | 302 Found [http://localhost/real_estate/134/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:17) [GET]
+  [4;35;1mUser Load (5.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (9.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 123ms (View: 47, DB: 16) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 19:34:33) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.2ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (4.4ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 192ms (View: 162, DB: 9) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:37) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (1.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 194ms (View: 135, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 19:34:47) [GET]
+  Parameters: {"id"=>"135"}
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '135') LIMIT 1[0m
+  [4;35;1mUser Load (3.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 62ms (DB: 4) | 302 Found [http://localhost/real_estate/135/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:47) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.7ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (4.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 81ms (View: 23, DB: 6) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 19:34:51) [GET]
+  Parameters: {"id"=>"136"}
+  [4;35;1mRealEstate Load (1.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '136') LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 23:34:51', "cash" = 35507 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.6ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-22 23:34:51', "user_id" = 1 WHERE "id" = 136[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 89ms (DB: 4) | 302 Found [http://localhost/real_estate/136/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:51) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (1.6ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 79ms (View: 25, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 19:34:59) [GET]
+  Parameters: {"id"=>"136"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" = 1 AND "real_estates"."id" = '136') LIMIT 1[0m
+  [4;35;1mRealEstate Delete all (6.6ms)[0m   [0mDELETE FROM "real_estates" WHERE ("id" IN (136)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-22 23:34:59', "cash" = 91922 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 117ms (DB: 10) | 302 Found [http://localhost/real_estate/136/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:34:59) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (1.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 79ms (View: 22, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 19:35:02) [GET]
+  Parameters: {"id"=>"137"}
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '137') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-22 23:35:02', "cash" = 5486 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.6ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-22 23:35:02', "user_id" = 1 WHERE "id" = 137[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 126ms (DB: 3) | 302 Found [http://localhost/real_estate/137/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:35:02) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (1.1ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 78ms (View: 21, DB: 3) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#sell (for 127.0.0.1 at 2010-04-22 19:35:04) [GET]
+  Parameters: {"id"=>"137"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" = 1 AND "real_estates"."id" = '137') LIMIT 1[0m
+  [4;35;1mRealEstate Delete all (12.0ms)[0m   [0mDELETE FROM "real_estates" WHERE ("id" IN (137)) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-22 23:35:04', "cash" = 91922 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 86ms (DB: 15) | 302 Found [http://localhost/real_estate/137/sell]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 19:35:04) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (2.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 77ms (View: 22, DB: 4) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 19:35:09) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 121ms (View: 105, DB: 6) | 200 OK [http://localhost/users/1]
+  [4;36;1mRealEstate Load (7.4ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" [0m

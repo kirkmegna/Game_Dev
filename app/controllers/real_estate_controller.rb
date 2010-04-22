@@ -4,14 +4,19 @@ class RealEstateController < ApplicationController
 
   def index
     @real_estate =  current_user.real_estates.all
-    @home = RealEstate.new_house 
+    @home = RealEstate.find_all_by_user_id(nil)
   end
  
   def buy
-    @buy = RealEstate.find_by_user_id(nil)
+  
+    @buy = RealEstate.find_by_user_id_and_id(nil, params[:id])
+    if not @buy
+      flash[:note] = "Too slow! It just sold!"
+      redirect_to :action => 'index"'
+      return
+    end
     if current_user.cash < @buy.cost
      flash[:note] = "You are BROKE!"
-     RealEstate.find_by_user_id(nil).delete
      redirect_to :action => "index"
      return
     end
@@ -23,9 +28,9 @@ class RealEstateController < ApplicationController
   end
   
   def sell
-    @sell = RealEstate.find(params[:id])
-    if @sell.id == nil
-      flash[:note] = "No more real estate to sell!"
+    @sell = RealEstate.find_by_user_id_and_id(current_user.id, params[:id])
+    if @sell == nil 
+      flash[:note] = "HAXXXXXX!!!"
       redirect_to :action => "index"
       return
     end
