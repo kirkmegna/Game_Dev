@@ -1,5 +1,5 @@
 class RealEstate < ActiveRecord::Base
-  
+  named_scope :unowned, :conditions => "user_id is null"
 #=> RealEstate(id: integer, user_id: integer, style: string, cashflow: integer, created_at: datetime, updated_at: datetime, cost: integer)
 
   belongs_to :user

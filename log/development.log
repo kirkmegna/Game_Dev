@@ -11233,3 +11233,858 @@ Rendering users/show
 Completed in 121ms (View: 105, DB: 6) | 200 OK [http://localhost/users/1]
   [4;36;1mRealEstate Load (7.4ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
   [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" [0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100418041119)
+Migrating to CreateRealEstates (20100418063932)
+Migrating to CreateBoughtStocks (20100418065442)
+Migrating to CreateStocks (20100418065555)
+Migrating to AddCostToRealEstate (20100421021407)
+Migrating to RemoveNumOwned (20100421022339)
+Migrating to Cash (20100421043357)
+Migrating to CreateDelayedJobs (20100423000633)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" varchar(255), "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE INDEX "index_delayed_jobs_on_locked_by" ON "delayed_jobs" ("locked_by")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100423000633')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("bought_stocks")[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mPRAGMA index_list("delayed_jobs")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('index_delayed_jobs_on_locked_by')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("real_estates")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("stocks")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mDelayed::Job Load (3.7ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+*** Starting job worker host:kirk-linux pid:2069
+Exiting...
+Exiting...
+Exiting...
+Exiting...
+Exiting...
+Exiting...
+  [4;36;1mDelayed::Job Load (4.2ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Load (3.8ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Load (3.6ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Load (3.7ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Load (3.4ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Create (1.4ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:49:03', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:49:03', 0, '2010-04-23 00:49:33', 0, NULL, NULL)[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:49:13) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:check_if_we_need_a_login] rendered_or_redirected.
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-22 20:49:13) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."password" IS NULL AND "users"."login" IS NULL) LIMIT 1[0m
+Rendering session/login
+Completed in 159ms (View: 44, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-22 20:49:20) [POST]
+  Parameters: {"authenticity_token"=>"OINpGCwz4zFI08UTo1HAgZcVfN09Yu/iL/yrvfak9B4=", "login"=>"kirk", "password"=>"password"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."password" = 'password' AND "users"."login" = 'kirk') LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed in 67ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:49:21) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (1.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (13.3ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 380ms (View: 350, DB: 19) | 200 OK [http://localhost/users/1]
+  [4;36;1mDelayed::Job Load (4.6ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.1ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (1.0ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:50:24', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:50:24', 0, '2010-04-23 00:50:53', 0, NULL, NULL)[0m
+*** Starting job worker host:kirk-linux pid:2308
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:50:26) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.5ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 134ms (View: 112, DB: 6) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:50:30) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.8ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.1ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 122ms (View: 105, DB: 6) | 200 OK [http://localhost/users/1]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (7.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 00:50:54', locked_by = 'host:kirk-linux pid:2308' WHERE (id = 2 and (locked_at is null or locked_at < '2010-04-22 20:50:54')) [0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 00:50:54', "cash" = 100392 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.0ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:50:54', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:50:54', 0, '2010-04-23 00:51:24', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 2[0m
+* [JOB] CashOutJob completed after 0.1324
+1 jobs processed at 6.8602 j/s, 0 failed ...
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:51:02) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.7ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.8ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 267ms (View: 251, DB: 7) | 200 OK [http://localhost/users/1]
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (7.3ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 00:51:24', locked_by = 'host:kirk-linux pid:2308' WHERE (id = 3 and (locked_at is null or locked_at < '2010-04-22 20:51:24')) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 00:51:24', "cash" = 108862 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (0.1ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:51:24', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:51:24', 0, '2010-04-23 00:51:54', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.5ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 3[0m
+* [JOB] CashOutJob completed after 0.0449
+1 jobs processed at 17.0306 j/s, 0 failed ...
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:51:34) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 123ms (View: 105, DB: 7) | 200 OK [http://localhost/users/1]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (12.1ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 00:51:54', locked_by = 'host:kirk-linux pid:2308' WHERE (id = 4 and (locked_at is null or locked_at < '2010-04-22 20:51:54')) [0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 00:51:54', "cash" = 117332 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.5ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:51:54', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:51:54', 0, '2010-04-23 00:52:24', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 4[0m
+* [JOB] CashOutJob completed after 0.0364
+1 jobs processed at 17.5636 j/s, 0 failed ...
+Exiting...
+  [4;36;1mDelayed::Job Update (0.8ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_by = null, locked_at = null WHERE (locked_by = 'host:kirk-linux pid:2308') [0m
+Exiting...
+  [4;35;1mDelayed::Job Update (1.6ms)[0m   [0mUPDATE "delayed_jobs" SET locked_by = null, locked_at = null WHERE (locked_by = 'host:kirk-linux pid:2069') [0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:52:31) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.6ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.9ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (1.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 134ms (View: 112, DB: 7) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 20:52:32) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (4.1ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (1.1ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 198ms (View: 176, DB: 10) | 200 OK [http://localhost/users/1]
+  [4;36;1mDelayed::Job Load (4.3ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.3ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 5[0m
+  [4;36;1mDelayed::Job Create (1.5ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 00:59:46', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 00:59:46', 0, '2010-04-23 01:00:16', 0, NULL, NULL)[0m
+  [4;35;1mRealEstate Load (1.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Load (1.1ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" LIMIT 1[0m
+  [4;36;1mRealEstate Update (1.8ms)[0m   [0;1mUPDATE "real_estates" SET "updated_at" = '2010-04-23 01:00:27', "user_id" = 1 WHERE "id" = 134[0m
+  [4;35;1mRealEstate Load (2.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Load (1.1ms)[0m   [0;1mSELECT * FROM "real_estates" [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mDelayed::Job Load (4.7ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.2ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 6[0m
+  [4;36;1mDelayed::Job Create (1.1ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:05:27', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:05:27', 0, '2010-04-23 01:05:57', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:05:27', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:05:27', 0, '2010-04-23 01:05:57', 0, NULL, NULL)[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:06:21) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (19.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 362ms (View: 305, DB: 26) | 200 OK [http://localhost/users/1]
+  [4;36;1mDelayed::Job Load (4.8ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.3ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 7[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 8[0m
+  [4;35;1mDelayed::Job Create (1.0ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:06:22', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:06:22', 0, '2010-04-23 01:06:52', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:06:22', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:06:22', 0, '2010-04-23 01:06:52', 0, NULL, NULL)[0m
+*** Starting job worker host:kirk-linux pid:2648
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:06:26) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.0ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.6ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (1.0ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 185ms (View: 168, DB: 7) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:06:29) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 89ms (View: 32, DB: 3) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (7.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:06:52', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 9 and (locked_at is null or locked_at < '2010-04-22 21:06:52')) [0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (1.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:06:52', "cash" = 125919 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:06:52', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:06:52', 0, '2010-04-23 01:07:22', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 9[0m
+* [JOB] CashOutJob completed after 0.1032
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (7.5ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:06:52', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 10 and (locked_at is null or locked_at < '2010-04-22 21:06:52')) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.8ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:06:52', 80786, '2010-04-23 01:06:52', NULL, 170, '3Br/2Ba')[0m
+  [4;35;1mDelayed::Job Create (0.7ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:06:52', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:06:52', 0, '2010-04-23 01:07:22', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 10[0m
+* [JOB] MakeNewHouse completed after 0.0335
+2 jobs processed at 12.2914 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:06:53) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.0ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (1.2ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 151ms (View: 58, DB: 3) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (7.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:07:22', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 11 and (locked_at is null or locked_at < '2010-04-22 21:07:22')) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:07:22', "cash" = 134506 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:07:22', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:07:22', 0, '2010-04-23 01:07:52', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.7ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 11[0m
+* [JOB] CashOutJob completed after 0.0390
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (5.8ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:07:22', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 12 and (locked_at is null or locked_at < '2010-04-22 21:07:22')) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.8ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:07:22', 157172, '2010-04-23 01:07:22', NULL, 353, '8-plex')[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:07:22', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:07:22', 0, '2010-04-23 01:07:52', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 12[0m
+* [JOB] MakeNewHouse completed after 0.0352
+2 jobs processed at 20.5872 j/s, 0 failed ...
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (12.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:07:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 13 and (locked_at is null or locked_at < '2010-04-22 21:07:53')) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:07:53', "cash" = 143093 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:07:53', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:07:53', 0, '2010-04-23 01:08:23', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 13[0m
+* [JOB] CashOutJob completed after 0.0383
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (7.7ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:07:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 14 and (locked_at is null or locked_at < '2010-04-22 21:07:53')) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.7ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:07:53', 123034, '2010-04-23 01:07:53', NULL, 302, '4-plex')[0m
+  [4;35;1mDelayed::Job Create (1.3ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:07:53', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:07:53', 0, '2010-04-23 01:08:23', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 14[0m
+* [JOB] MakeNewHouse completed after 0.0370
+2 jobs processed at 18.1779 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:07:57) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (5.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (1.7ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 131ms (View: 30, DB: 8) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (6.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:08:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 15 and (locked_at is null or locked_at < '2010-04-22 21:08:23')) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:08:23', "cash" = 151680 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:08:23', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:08:23', 0, '2010-04-23 01:08:53', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.8ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 15[0m
+* [JOB] CashOutJob completed after 0.0375
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (6.4ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:08:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 16 and (locked_at is null or locked_at < '2010-04-22 21:08:23')) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.8ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:08:23', 87839, '2010-04-23 01:08:23', NULL, 121, 'Duplex')[0m
+  [4;35;1mDelayed::Job Create (0.7ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:08:23', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:08:23', 0, '2010-04-23 01:08:53', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.8ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 16[0m
+* [JOB] MakeNewHouse completed after 0.0344
+2 jobs processed at 20.8661 j/s, 0 failed ...
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (7.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:08:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 17 and (locked_at is null or locked_at < '2010-04-22 21:08:53')) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:08:53', "cash" = 160267 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:08:53', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:08:53', 0, '2010-04-23 01:09:23', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.8ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 17[0m
+* [JOB] CashOutJob completed after 0.0961
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (6.7ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:08:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 18 and (locked_at is null or locked_at < '2010-04-22 21:08:53')) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.8ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:08:53', 148807, '2010-04-23 01:08:53', NULL, 1101, '8-plex')[0m
+  [4;35;1mDelayed::Job Create (1.0ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:08:53', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:08:53', 0, '2010-04-23 01:09:23', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 18[0m
+* [JOB] MakeNewHouse completed after 0.0371
+2 jobs processed at 12.6291 j/s, 0 failed ...
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (9.7ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:09:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 19 and (locked_at is null or locked_at < '2010-04-22 21:09:23')) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (0.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:09:23', "cash" = 168854 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:09:23', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:09:23', 0, '2010-04-23 01:09:53', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.7ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 19[0m
+* [JOB] CashOutJob completed after 0.0392
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (8.1ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:09:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 20 and (locked_at is null or locked_at < '2010-04-22 21:09:23')) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (0.8ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:09:23', 102220, '2010-04-23 01:09:23', NULL, 268, 'Duplex')[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:09:23', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:09:23', 0, '2010-04-23 01:09:53', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 20[0m
+* [JOB] MakeNewHouse completed after 0.0332
+2 jobs processed at 19.1106 j/s, 0 failed ...
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (9.1ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:09:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 22 and (locked_at is null or locked_at < '2010-04-22 21:09:53')) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mRealEstate Create (0.8ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:09:53', 115046, '2010-04-23 01:09:53', NULL, 495, '4-plex')[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:09:53', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:09:53', 0, '2010-04-23 01:10:23', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.8ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 22[0m
+* [JOB] MakeNewHouse completed after 0.0902
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (7.0ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:09:53', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 21 and (locked_at is null or locked_at < '2010-04-22 21:09:53')) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:09:53', "cash" = 177441 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (0.9ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:09:53', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:09:53', 0, '2010-04-23 01:10:23', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 21[0m
+* [JOB] CashOutJob completed after 0.0395
+2 jobs processed at 12.4501 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:10:00) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (2.7ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 100ms (View: 41, DB: 5) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (9.6ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:10:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 23 and (locked_at is null or locked_at < '2010-04-22 21:10:23')) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mRealEstate Create (1.0ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:10:23', 52836, '2010-04-23 01:10:23', NULL, 121, '2Br/1Ba')[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:10:23', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:10:23', 0, '2010-04-23 01:10:53', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 23[0m
+* [JOB] MakeNewHouse completed after 0.0346
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (6.4ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:10:23', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 24 and (locked_at is null or locked_at < '2010-04-22 21:10:23')) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:10:23', "cash" = 186028 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (1.2ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:10:23', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:10:23', 0, '2010-04-23 01:10:53', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.5ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 24[0m
+* [JOB] CashOutJob completed after 0.0387
+2 jobs processed at 19.3521 j/s, 0 failed ...
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:10:53) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (0.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.0ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.5ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (1.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (19.6ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:10:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 25 and (locked_at is null or locked_at < '2010-04-22 21:10:54')) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mRealEstate Create (1.0ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:10:54', 120006, '2010-04-23 01:10:54', NULL, 588, '4-plex')[0m
+Completed in 192ms (View: 176, DB: 6) | 200 OK [http://localhost/users/1]
+  [4;36;1mDelayed::Job Create (0.6ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:10:54', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:10:54', 0, '2010-04-23 01:11:24', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 25[0m
+* [JOB] MakeNewHouse completed after 0.1022
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (25.2ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:10:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 26 and (locked_at is null or locked_at < '2010-04-22 21:10:54')) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:10:54', "cash" = 194615 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (1.0ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:10:54', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:10:54', 0, '2010-04-23 01:11:24', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 26[0m
+* [JOB] CashOutJob completed after 0.1313
+2 jobs processed at 6.9710 j/s, 0 failed ...
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (7.1ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:11:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 27 and (locked_at is null or locked_at < '2010-04-22 21:11:24')) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:11:24', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:11:24', 0, '2010-04-23 01:11:54', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 27[0m
+* [JOB] MakeNewHouse completed after 0.0232
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (6.4ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:11:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 28 and (locked_at is null or locked_at < '2010-04-22 21:11:24')) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (1.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:11:24', "cash" = 203202 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (1.0ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:11:24', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:11:24', 0, '2010-04-23 01:11:54', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.7ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 28[0m
+* [JOB] CashOutJob completed after 0.0391
+2 jobs processed at 23.1417 j/s, 0 failed ...
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (6.3ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:11:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 30 and (locked_at is null or locked_at < '2010-04-22 21:11:54')) [0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (0.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:11:54', "cash" = 211789 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:11:54', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:11:54', 0, '2010-04-23 01:12:24', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 30[0m
+* [JOB] CashOutJob completed after 0.0750
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (6.8ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:11:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 29 and (locked_at is null or locked_at < '2010-04-22 21:11:54')) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:11:54', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:11:54', 0, '2010-04-23 01:12:24', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 29[0m
+* [JOB] MakeNewHouse completed after 0.0203
+2 jobs processed at 16.7999 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:12:20) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (0.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (5.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 102ms (View: 44, DB: 7) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (10.2ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:12:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 31 and (locked_at is null or locked_at < '2010-04-22 21:12:24')) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (1.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.2ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:12:24', "cash" = 220376 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:12:24', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:12:24', 0, '2010-04-23 01:12:54', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 31[0m
+* [JOB] CashOutJob completed after 0.0420
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (7.0ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:12:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 32 and (locked_at is null or locked_at < '2010-04-22 21:12:24')) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mDelayed::Job Create (1.1ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:12:24', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:12:24', 0, '2010-04-23 01:12:54', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.8ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 32[0m
+* [JOB] MakeNewHouse completed after 0.0231
+2 jobs processed at 20.5242 j/s, 0 failed ...
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (10.7ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:12:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 33 and (locked_at is null or locked_at < '2010-04-22 21:12:54')) [0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (1.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:12:54', "cash" = 228963 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:12:54', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:12:54', 0, '2010-04-23 01:13:24', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.8ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 33[0m
+* [JOB] CashOutJob completed after 0.0649
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (6.3ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:12:54', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 34 and (locked_at is null or locked_at < '2010-04-22 21:12:54')) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mDelayed::Job Create (1.5ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:12:54', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:12:54', 0, '2010-04-23 01:13:24', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 34[0m
+* [JOB] MakeNewHouse completed after 0.0233
+2 jobs processed at 16.6808 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:13:01) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (0.8ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (3.4ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 104ms (View: 45, DB: 5) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:13:11) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.0ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.6ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (3.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (1.0ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 205ms (View: 184, DB: 10) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:13:15) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (3.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 109ms (View: 48, DB: 6) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:13:17) [GET]
+  Parameters: {"id"=>"135"}
+  [4;35;1mRealEstate Load (1.1ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '135') LIMIT 1[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:13:17', "cash" = 118113 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.5ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-23 01:13:17', "user_id" = 1 WHERE "id" = 135[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 95ms (DB: 4) | 302 Found [http://localhost/real_estate/135/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:13:17) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.2ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (5.8ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 106ms (View: 45, DB: 8) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:13:19) [GET]
+  Parameters: {"id"=>"138"}
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '138') LIMIT 1[0m
+  [4;36;1mUser Load (4.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:13:19', "cash" = 37327 WHERE "id" = 1[0m
+  [4;35;1mRealEstate Update (0.8ms)[0m   [0mUPDATE "real_estates" SET "updated_at" = '2010-04-23 01:13:19', "user_id" = 1 WHERE "id" = 138[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 96ms (DB: 7) | 302 Found [http://localhost/real_estate/138/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:13:19) [GET]
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (5.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (5.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 112ms (View: 46, DB: 12) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:13:21) [GET]
+  Parameters: {"id"=>"139"}
+  [4;35;1mRealEstate Load (0.7ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '139') LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 60ms (DB: 2) | 302 Found [http://localhost/real_estate/139/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:13:21) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.6ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (2.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 107ms (View: 49, DB: 5) | 200 OK [http://localhost/real_estate]
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (18.0ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:13:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 36 and (locked_at is null or locked_at < '2010-04-22 21:13:24')) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mRealEstate Create (1.2ms)[0m   [0mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:13:24', 80872, '2010-04-23 01:13:24', NULL, 147, '3Br/2Ba')[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:13:24', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:13:24', 0, '2010-04-23 01:13:54', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 36[0m
+* [JOB] MakeNewHouse completed after 0.0629
+* [JOB] aquiring lock on CashOutJob
+  [4;36;1mDelayed::Job Update (20.4ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:13:24', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 35 and (locked_at is null or locked_at < '2010-04-22 21:13:24')) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mRealEstate Load (1.2ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 01:13:25', "cash" = 46624 WHERE "id" = 1[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:13:25', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:13:25', 0, '2010-04-23 01:13:55', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 35[0m
+* [JOB] CashOutJob completed after 0.0666
+2 jobs processed at 11.1303 j/s, 0 failed ...
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:13:27) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.9ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.8ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 139ms (View: 121, DB: 8) | 200 OK [http://localhost/users/1]
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (10.8ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:13:55', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 38 and (locked_at is null or locked_at < '2010-04-22 21:13:55')) [0m
+  [4;36;1mUser Load (2.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (3.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:13:55', "cash" = 55921 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:13:55', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:13:55', 0, '2010-04-23 01:14:25', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 38[0m
+* [JOB] CashOutJob completed after 0.0489
+* [JOB] aquiring lock on MakeNewHouse
+  [4;36;1mDelayed::Job Update (7.1ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:13:55', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 37 and (locked_at is null or locked_at < '2010-04-22 21:13:55')) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;36;1mRealEstate Create (1.4ms)[0m   [0;1mINSERT INTO "real_estates" ("created_at", "cost", "updated_at", "user_id", "cashflow", "style") VALUES('2010-04-23 01:13:55', 137685, '2010-04-23 01:13:55', NULL, 827, '8-plex')[0m
+  [4;35;1mDelayed::Job Create (0.7ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:13:55', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:13:55', 0, '2010-04-23 01:14:25', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 37[0m
+* [JOB] MakeNewHouse completed after 0.0333
+2 jobs processed at 17.6146 j/s, 0 failed ...
+* [JOB] aquiring lock on MakeNewHouse
+  [4;35;1mDelayed::Job Update (8.6ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:14:25', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 40 and (locked_at is null or locked_at < '2010-04-22 21:14:25')) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "real_estates" WHERE (user_id is null) [0m
+  [4;35;1mDelayed::Job Create (1.1ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:14:25', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-23 01:14:25', 0, '2010-04-23 01:14:55', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Destroy (0.7ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 40[0m
+* [JOB] MakeNewHouse completed after 0.0264
+* [JOB] aquiring lock on CashOutJob
+  [4;35;1mDelayed::Job Update (9.2ms)[0m   [0mUPDATE "delayed_jobs" SET locked_at = '2010-04-23 01:14:25', locked_by = 'host:kirk-linux pid:2648' WHERE (id = 39 and (locked_at is null or locked_at < '2010-04-22 21:14:25')) [0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mRealEstate Load (2.4ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:14:25', "cash" = 65218 WHERE "id" = 1[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-23 01:14:25', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-23 01:14:25', 0, '2010-04-23 01:14:55', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Destroy (0.7ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 39[0m
+* [JOB] CashOutJob completed after 0.0468
+2 jobs processed at 19.5158 j/s, 0 failed ...
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:14:29) [GET]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (2.6ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (3.2ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 112ms (View: 53, DB: 7) | 200 OK [http://localhost/real_estate]
+Exiting...
+  [4;36;1mDelayed::Job Update (0.5ms)[0m   [0;1mUPDATE "delayed_jobs" SET locked_by = null, locked_at = null WHERE (locked_by = 'host:kirk-linux pid:2648') [0m
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:14:46) [GET]
+  Parameters: {"id"=>"139"}
+  [4;36;1mRealEstate Load (1.3ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '139') LIMIT 1[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 58ms (DB: 2) | 302 Found [http://localhost/real_estate/139/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:14:47) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (1.6ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (4.0ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 176ms (View: 118, DB: 7) | 200 OK [http://localhost/real_estate]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-22 21:14:49) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mBoughtStock Load (1.7ms)[0m   [0mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;35;1mStock Load (3.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 138ms (View: 120, DB: 10) | 200 OK [http://localhost/users/1]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:14:52) [GET]
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRealEstate Load (2.3ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mRealEstate Load (2.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 113ms (View: 53, DB: 7) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:15:02) [GET]
+  Parameters: {"id"=>"144"}
+  [4;35;1mRealEstate Load (0.9ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '144') LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/real_estate
+Completed in 58ms (DB: 2) | 302 Found [http://localhost/real_estate/144/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:15:02) [GET]
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.5ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (7.5ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 119ms (View: 52, DB: 11) | 200 OK [http://localhost/real_estate]
+
+
+Processing RealEstateController#buy (for 127.0.0.1 at 2010-04-22 21:15:08) [GET]
+  Parameters: {"id"=>"145"}
+  [4;36;1mRealEstate Load (1.1ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL AND "real_estates"."id" = '145') LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kirk' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 01:15:08', "cash" = 12382 WHERE "id" = 1[0m
+  [4;36;1mRealEstate Update (0.8ms)[0m   [0;1mUPDATE "real_estates" SET "updated_at" = '2010-04-23 01:15:08', "user_id" = 1 WHERE "id" = 145[0m
+Redirected to http://localhost:3000/real_estate
+Completed in 95ms (DB: 4) | 302 Found [http://localhost/real_estate/145/buy]
+
+
+Processing RealEstateController#index (for 127.0.0.1 at 2010-04-22 21:15:08) [GET]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRealEstate Load (1.9ms)[0m   [0;1mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;35;1mRealEstate Load (3.0ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates"."user_id" IS NULL) [0m
+Rendering template within layouts/layout
+Rendering real_estate/index
+Completed in 120ms (View: 52, DB: 6) | 200 OK [http://localhost/real_estate]
