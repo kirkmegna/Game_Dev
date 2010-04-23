@@ -26,7 +26,7 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	color:green; 
 }
 
-.note h4, .contain_left h4, .contain_center h4, .contain_right h4{
+.note h4, .contain_top_left h4, .contain_top_right h4, .contain_bottom_right h4, .contain_bottom_left h4{
 	margin:0px;
 }
 
@@ -43,22 +43,27 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	margin:5px;
 }
 
-.contain_left{
+.contain_top_left{
 	top:125px;
 	left:100px;
 }
 
-.contain_center{
+.contain_top_right{
 	top:125px;
 	left:300px;
 }
 
-.contain_right{
+.contain_bottom_right{
 	bottom:125px;
-	left:200px;	
+	left:300px;	
 }
 
-.contain_left, .contain_center, .contain_right{
+.contain_bottom_left{
+	bottom:125px;
+	left:100px;	
+}
+
+.contain_top_left, .contain_top_right, .contain_bottom_right, .contain_bottom_left{
 	width:200px;
 	border:3px solid #AAAAAA;
 	background-color:black;
@@ -68,7 +73,7 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	padding:5px 0px;
 }
 
-.contain_left p, .contain_center p, .contain_right p{
+.contain_top_left p, .contain_top_right p, .contain_bottom_right p, .contain_bottom_left p{
 	color:green;
 	margin:0px;
 }

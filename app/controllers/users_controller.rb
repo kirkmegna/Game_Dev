@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  
  
+  include SessionHelper
+  
   def index
   end
 
@@ -17,6 +18,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = User.create(:login => "#", :password => "#", :name => "#", :job => "#", :job_hours => "123...", :cash => 500)
+    session[:user_id] = user.id
+    redirect_to :action => "new"
   end
 
   def delete

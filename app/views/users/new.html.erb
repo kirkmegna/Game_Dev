@@ -1,2 +1,5 @@
-<h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<h1>New user account successfully created</h1>
+<p>Welcome <%=current_user.name%> to ROLLING IN CA$H!</p>
+
+<p> Ready to get started? Click <%=link_to "here", user_path(current_user.id) %> to head on over to your profile page!</p>
+

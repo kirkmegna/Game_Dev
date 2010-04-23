@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100423035847) do
+ActiveRecord::Schema.define(:version => 20100423214010) do
 
   create_table "bought_stocks", :force => true do |t|
     t.integer  "user_id"

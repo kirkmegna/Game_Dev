@@ -1,15 +1,14 @@
 
 <div id="real_estate_column" class="left">
 		<div class="owned_homes">
-<h4>Current Real Estate you Own</h4>
-<% @real_estate.each do |home|%>
-<%=home.style%><br/>
-value: <%=number_to_currency home.cost%><br/>
-cashflow: <%=number_to_currency home.total_rent%><br/>
-<%=link_to "Sell", sell_real_estate_path(home.id)%>
-<br/>
-<%end%>
-</div>
+			<h4>Current Real Estate you Own</h4>
+			<% @real_estate.each do |home|%>
+			<%=home.style%><br/>
+			value: <%=number_to_currency home.cost%><br/>
+			cashflow: <%=number_to_currency home.total_rent%><br/>
+			<%=link_to "Sell", sell_real_estate_path(home.id)%><br/>
+			<%end%>
+		</div>
 </div>
 
 <div id="real_estate_column" class="right">

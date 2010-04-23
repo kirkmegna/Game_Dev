@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   JOB_TYPES = %w(high middle low)
   
   PAY_RATES = {"high" => 35, "middle" => 22, "low" => 10}
+  EXPENSES = {"high" => 7740, "middle" =>3840, "low" =>960}
+  
   
   validates_inclusion_of :job, :in => JOB_TYPES
 
@@ -29,6 +31,10 @@ class User < ActiveRecord::Base
     PAY_RATES[job]
   end
   
+  def expenses
+    EXPENSES[job]
+  end
+  
   def is_upper_class_job?
     job=="high"
   end
@@ -42,7 +48,7 @@ class User < ActiveRecord::Base
   end
   
   def cashflow
-    monthly_job_cashflow+monthly_real_estate_cashflow
+    monthly_job_cashflow+monthly_real_estate_cashflow-expenses
   end
  
   def monthly_job_cashflow #currently assumes 22 working days per month
