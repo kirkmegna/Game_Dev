@@ -6,10 +6,11 @@ class SessionController < ApplicationController
     user=User.find_by_login_and_password(params[:login], params[:password])
     if user
       session[:user_id]= user.id
-      flash[:note] = "Successful login"
+      flash[:note] = "Welcome " + user.name + ". You have logged in successfully!" 
       redirect_to user_path(user)
     end
-
+     #flash[:note] = "Password/Login combination is invalid." 
+     
   end
 
 end

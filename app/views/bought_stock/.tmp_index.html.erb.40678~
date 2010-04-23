@@ -1,5 +1,3 @@
-
-<div class="stocks">
 <% @stocks.each do |stock|%>
 <p><%=stock.name%></p>
 <p><%=number_to_currency stock.value%></p>
@@ -9,4 +7,3 @@
 <%=link_to "Sell", sell_stocks_path(stock.id)%>
 <br/>
 <%end%>
-</div>

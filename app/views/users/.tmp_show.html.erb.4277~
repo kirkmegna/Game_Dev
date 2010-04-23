@@ -1,3 +1,7 @@
+
+
+<h2> Welcome <%=current_user.name%> </h2>
+
 <div class="contain_left">
 	<h4>Monthly Cashflow</h4>
 	<p><%=number_to_currency current_user.cashflow%></p>

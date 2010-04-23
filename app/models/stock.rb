@@ -8,10 +8,9 @@ class Stock < ActiveRecord::Base
   # 3 = BGAPL Liberty Foods
   # 4 = SKYHI Construction Company
   
-  #=> Stock(id: integer, name: string, value: integer, created_at: datetime, updated_at: datetime)
+  #=> Stock(id: integer, name: string, created_at: datetime, updated_at: datetime, value: decimal)
  
-  validates_inclusion_of :value, :in => 1..150 
-  validates_format_of :value, :with => /^[0-9]{1,3}$/
+  validates_numericality_of :value, :greater_than => 0
   
   validates_format_of :name, :with => /^[0-9a-z ]{8,30}$/i
   

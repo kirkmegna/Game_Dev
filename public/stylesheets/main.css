@@ -1,6 +1,6 @@
 body {margin:0px; background-color:black; font-family: "Times New Roman", Times, serif; text-align:center;}
 
-div#page {
+#page {
 	position:relative;
 	width:600px;
 	height:450px;
@@ -14,9 +14,8 @@ div#page {
 .note{
 	position:absolute;
 	top:0px;
-	right:0px;
-	border:5px solid gray;
-	width:150px;
+	left:0px;
+	width:600px;
 	background-color:#151515;
 	vertical-align:middle;
 	padding:0px;
@@ -27,45 +26,88 @@ div#page {
 	color:green; 
 }
 
-.note h4{
-	border-style:solid;
-	border-color:gray;
-	vertical-align:top;
-	border-width:0px 0px 2px;
-	padding:0px;
+.note h4, .contain_left h4, .contain_center h4, .contain_right h4{
 	margin:0px;
 }
 
-div.menu {
+.menu {
 	position:absolute;
-	bottom:5px;
-	border:3px solid gray;
+	bottom:15px;
 	width:600px;
-	text-align:center;
 }
 
-div.contain_left{
-	top:70px;
+.menu a, li{
+	display:inline;
+	list-style-type:none;
+	color:white;
+	margin:5px;
+}
+
+.contain_left{
+	top:125px;
 	left:100px;
 }
 
-div.contain_center{
-	top:70px;
+.contain_center{
+	top:125px;
 	left:300px;
 }
 
-div.contain_right{
-	top:200px;
+.contain_right{
+	bottom:125px;
 	left:200px;	
 }
 
 .contain_left, .contain_center, .contain_right{
 	width:200px;
-	border:3px solid gray;
-	height:100px;
+	border:3px solid #AAAAAA;
+	background-color:black;
+	color:#0099FF;
+	height:auto;
 	position:absolute;
+	padding:5px 0px;
 }
 
 .contain_left p, .contain_center p, .contain_right p{
 	color:green;
+	margin:0px;
+}
+
+.left{
+	width:250px;
+	height:350px;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	top:75px;
+	left:33px;
+	padding:5px 0px;
+	overflow:auto;
+}
+
+.right{
+	width:250px;
+	height:350px;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	top:75px;
+	right:33px;
+	padding:5px 0px;
+	overflow:auto;
+}
+
+.stocks{
+	width:400px;
+	height:350px;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	top:75px;
+	left:100px;
+	padding:5px 0px;
+}
+
+.stocks p{
+	margin:0px;
 }
