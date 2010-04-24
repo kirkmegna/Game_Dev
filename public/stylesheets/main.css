@@ -45,22 +45,22 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 
 .contain_top_left{
 	top:125px;
-	left:100px;
+	left:90px;
 }
 
 .contain_top_right{
 	top:125px;
-	left:300px;
+	right:90px;
 }
 
 .contain_bottom_right{
 	bottom:125px;
-	left:300px;	
+	right:90px;	
 }
 
 .contain_bottom_left{
 	bottom:125px;
-	left:100px;	
+	left:90px;
 }
 
 .contain_top_left, .contain_top_right, .contain_bottom_right, .contain_bottom_left{
@@ -84,7 +84,7 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	border:3px solid #AAAAAA;
 	position:absolute;
 	background-color:black;
-	top:75px;
+	top:85px;
 	left:33px;
 	padding:5px 0px;
 	overflow:auto;
@@ -96,10 +96,51 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	border:3px solid #AAAAAA;
 	position:absolute;
 	background-color:black;
-	top:75px;
+	top:85px;
 	right:33px;
 	padding:5px 0px;
 	overflow:auto;
+}
+
+#real_estate_left{
+	width:250px;
+	left:33px;
+	top:37px;
+}
+
+#real_estate_right{
+	width:250px;
+	right:33px;
+	top:37px;
+}
+
+#cash{
+	width:200px;
+	left:90px;
+	top:37px;
+}
+
+#assets{
+	width:200px;
+	right:90px;
+	top:80px;
+}
+
+#progress{
+	width:200px;
+	right:90px;
+	top:37px;
+}
+
+#work{
+	width:200px;
+	left:90px;
+	top:80px;
+}
+
+
+.title{
+	position:absolute;
 }
 
 .stocks{
@@ -108,9 +149,10 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	border:3px solid #AAAAAA;
 	position:absolute;
 	background-color:black;
-	top:75px;
+	top:85px;
 	left:100px;
-	padding:5px 0px;
+	padding:0px;
+
 }
 
 .stocks p{
