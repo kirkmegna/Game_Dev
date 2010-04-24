@@ -10,7 +10,16 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	border:3px solid gray;
 	padding:0px 0px 50px;
 }
+.label_with_color{
+	color:#0099FF;
+	font-size:medium;
+	font-weight:bold;
+}
 
+.content_with_color{
+	color:green;
+}
+	
 .note{
 	position:absolute;
 	top:0px;
@@ -169,8 +178,9 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 #each_stock{
 	text-align:center;
 	width:250px;
-	margin:10px auto;
-	border:1px solid #0099FF;
+	margin:auto;
+	padding:3px;
+	border:1px solid black;
 }
 
 #each_house{
@@ -181,7 +191,51 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 }
 
 .left a, .right a{
-	color:black;
-	text-decoration:none;
+		text-decoration:none;
+		width:78px;
+		color:black;
+		display:inline-block;
+		height:24px;
+}
 
+#real_estate_column a:link{
+	background-image:url('/images/button_up.png');
+}
+
+#real_estate_column a:visited{
+	background-image:url('/images/button_up.png');
+}
+		
+#real_estate_column a:hover{
+	background-image:url('/images/button_over.png');
+		color:blue;
+}
+
+#real_estate_column a:active{
+	background-image:url('/images/button_down.png');
+}
+
+.stocks a{
+		text-decoration:none;
+		width:78px;
+		color:black;
+		display:inline-block;
+		height:24px;
+}
+
+.stocks a:link{
+	background-image:url('/images/button_up.png');
+}
+
+.stocks a:visited{
+	background-image:url('/images/button_up.png');
+}
+		
+.stocks a:hover{
+	background-image:url('/images/button_over.png');
+		color:blue;
+}
+
+.stocks a:active{
+	background-image:url('/images/button_down.png');
 }
