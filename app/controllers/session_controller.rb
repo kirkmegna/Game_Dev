@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     if user
       session[:user_id]= user.id
       flash[:note] = "Welcome " + user.name + ". You have logged in successfully!" 
-      redirect_to user_path(user)
+      redirect_to profile_users_path
     end
      #flash[:note] = "Password/Login combination is invalid." 
      

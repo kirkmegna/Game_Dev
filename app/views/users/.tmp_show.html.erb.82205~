@@ -4,10 +4,10 @@
 	
 <div class="contain_bottom_left">
 	<h4>Monthly Cashflow</h4>
-	<p><%=number_to_currency @user.cashflow%></p>
+	<p><%=number_to_currency current_user.cashflow%></p>
 	<br/>
 	<h4>Total Cash On Hand</h4>
-	<p><%=number_to_currency @user.cash%></p>
+	<p><%=number_to_currency current_user.cash%></p>
 </div>
 
 <div id="assets" class="title">
@@ -16,10 +16,10 @@
 
 <div class="contain_top_right">
 	<h4>Stock Value</h4>
-	<p><%=number_to_currency @user.net_stock_value%></p>
+	<p><%=number_to_currency current_user.net_stock_value%></p>
 	<br/>
 	<h4>Real Estate Value</h4>
-	<p><%=number_to_currency @user.net_real_estate_value%></p>
+	<p><%=number_to_currency current_user.net_real_estate_value%></p>
 </div>
 
 <div id="progress" class="title">
@@ -28,10 +28,10 @@
 
 <div class="contain_bottom_right">
 	<h4>Passive Income</h4>
-	<p><%=number_to_currency @user.monthly_real_estate_cashflow%></p>
+	<p><%=number_to_currency current_user.monthly_real_estate_cashflow%></p>
 	<br/>
 	<h4>Expenses</h4>
-	<p><%=number_to_currency @user.expenses%></p>
+	<p><%=number_to_currency current_user.expenses%></p>
 	</div>
 
 <div id="work" class="title">
@@ -40,8 +40,8 @@
 
 <div class="contain_top_left">
 	<h4>Hourly Payrate</h4>
-	<p><%=number_to_currency @user.payrate%></p>
+	<p><%=number_to_currency current_user.payrate%></p>
 	<br/>
 	<h4>Hours You Work</h4>
-	<p><%=@user.job_hours%></p>
+	<p><%=current_user.job_hours%></p>
 </div>

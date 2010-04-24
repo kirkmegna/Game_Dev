@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.login "login", :controller => :session, :action => :login
-  map.resources :users
+  
+  map.resources :users, :collection => { :profile => :get }
+  
   map.stocks "stocks", :controller => :bought_stock, :action => :index
   map.buy_stocks "stocks/:id/buy", :controller => :bought_stock, :action => :buy 
   map.sell_stocks "stocks/:id/sell", :controller => :bought_stock, :action => :sell

@@ -1,5 +1,21 @@
-<h1>New user account successfully created</h1>
-<p>Welcome <%=current_user.name%> to ROLLING IN CA$H!</p>
-
-<p> Ready to get started? Click <%=link_to "here", user_path(current_user.id) %> to head on over to your profile page!</p>
-
+<% form_for(@user) do |f| %>
+<div>
+	<%= f.label :login %>
+	<%= f.text_field :login %>
+</div>
+<div>
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+</div>
+<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</div>
+<div>
+	<%= f.label :job %>
+	<%= f.select :job, User::JOB_TYPES %>
+</div>
+<div>
+	<%= f.submit "Register" %>
+</div>
+<% end %>
