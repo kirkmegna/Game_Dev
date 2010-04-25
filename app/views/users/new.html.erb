@@ -1,17 +1,19 @@
 <div id="new_user" class="form">
-	<h1>ROLLIN' in CA$H</h1>
 	<h2>Registration Page</h2>
 	
 <% form_for(@user) do |f| %>
 	<p>Login ID:</p>
 	<%= f.text_field :login %>
-	<br/><br/>
+	<p>ID is case sensitive and must be 3-15 characters <br/> long using only letters and numbers.</p>
+	<br/>
 	<p>Password:</p>
 	<%= f.password_field :password %>
-	<br/><br/>
+	<p>Password is case sensitive and must be 6-20 <br/> characters long using only letters and numbers.</p>
+	<br/>
 	<p>User Name:</p>
-	<%= f.text_field :name %>
-	<br/><br/>
+	<%= f.text_field :name %> 
+	<p>User name is case sensitive and can be 3-20 characters <br/> long using letters, numbers, hyphens, periods, or underscores.</p>
+	<br/>
 	<p>Profession:
 	<%= f.select :job, User::JOB_TYPES %></p>
 	<br/>

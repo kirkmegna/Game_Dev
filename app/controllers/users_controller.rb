@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user].merge({:job_hours => 5, :cash => 500}))
+    @user = User.new(params[:user].merge({:cash => 500}))
+    @user.job_hours = @user.hours_worked
     if @user.save
       session[:user_id] = @user.id
       flash[:note] = "New user account successfully created"

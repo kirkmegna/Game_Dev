@@ -1,0 +1,20 @@
+<div id="new_user" class="form">
+	<h1>ROLLIN' in CA$H</h1>
+	<h2>Registration Page</h2>
+	
+<% form_for(@user) do |f| %>
+	<p>Login ID:</p>
+	<%= f.text_field :login %>
+	<br/><br/>
+	<p>Password:</p>
+	<%= f.password_field :password %>
+	<br/><br/>
+	<p>User Name:</p>
+	<%= f.text_field :name %>
+	<br/><br/>
+	<p>Profession:
+	<%= f.select :job, User::JOB_TYPES %></p>
+	<br/>
+	<%= f.submit "Register" %>
+<% end %>
+</div>

@@ -1,7 +1,6 @@
-	<div>
-		<h1>ROLLIN' in CA$H</h1>
-		<h2>Instructions</h2>
-	<br/>
+	<h1>ROLLIN' in CA$H</h1>
+	<h2>Instructions</h2>
+	
 	<div class="rules">
 		<p>Hello <%=current_user.name%>, and welcome to ROLLIN' in CA$H, the game where you get a chance 
 		at early retirement. Before we get started there are a few basics you should get a handle on.</p>
@@ -22,15 +21,12 @@
 		increase your cash on hand - allowing you to purchase more homes quicker!</p>
 		
 		<p>The type of job you picked affected not only your hourly pay rate, but also the number of hours you work, 
-		and your monthly expenses. Your overall cashflow is how much money you have coming in after all your bills
+		and your monthyl expenses. Your overall cashflow is how much money you have coming in after all your bills
 		are paid up. This includes income from your rental properties and your job income (calculated on a monthly
 		basis).</p> 
 		
-		<p>Once your passive income is greater than your expenses, you will have the option to retire. This will drop
-		your daily working hours down to 0 and adjust your monthly cashflow accordingly. Once you have retired, you 
-		have won the game!</p>		
+		
 	</div>
-
-	<p> Ready to get started? Click <%=link_to "here", user_path(current_user.id) %> to head on over to your profile page!</p>
 	
-	</div>
+	
+	<p> Ready to get started? Click <%=link_to "here", user_path(current_user.id) %> to head on over to your profile page!</p>

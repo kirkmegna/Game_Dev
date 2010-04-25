@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   
   PAY_RATES = {"high" => 35, "middle" => 22, "low" => 10}
   EXPENSES = {"high" => 7740, "middle" =>3840, "low" =>960}
-  
+  JOB_HOURS = {"high" => 12, "middle" =>10, "low" =>8}
+  PROFESSION = {"high" => "Doctor", "middle" =>"Graphic Designer", "low" =>"Burger Flipper"}
   
   validates_inclusion_of :job, :in => JOB_TYPES
 
@@ -26,6 +27,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login
   
   validates_format_of :password, :with => /^[0-9a-z]{6,20}$/i
+  
+  def hours_worked
+    JOB_HOURS[job]
+  end
   
   def payrate
     PAY_RATES[job]
