@@ -43981,3 +43981,949 @@ Rendering users/show
   [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
   [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
 Completed in 134ms (View: 92, DB: 10) | 200 OK [http://localhost/users/profile]
+  [4;36;1mDelayed::Job Load (5.1ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.2ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 1470[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 1471[0m
+  [4;35;1mDelayed::Job Destroy (0.7ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 1472[0m
+  [4;36;1mDelayed::Job Create (1.1ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:36:13', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-25 01:36:13', 0, '2010-04-25 01:36:43', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Create (0.7ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:36:13', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-25 01:36:13', 0, '2010-04-25 01:36:43', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:36:13', '--- !ruby/object:RandomStockValue {}
+
+', '2010-04-25 01:36:13', 0, '2010-04-25 01:36:23', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Load (5.6ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Destroy (1.1ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 1473[0m
+  [4;36;1mDelayed::Job Destroy (0.6ms)[0m   [0;1mDELETE FROM "delayed_jobs" WHERE "id" = 1474[0m
+  [4;35;1mDelayed::Job Destroy (0.6ms)[0m   [0mDELETE FROM "delayed_jobs" WHERE "id" = 1475[0m
+  [4;36;1mDelayed::Job Create (0.9ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:57:30', '--- !ruby/object:CashOutJob {}
+
+', '2010-04-25 01:57:30', 0, '2010-04-25 01:58:00', 0, NULL, NULL)[0m
+  [4;35;1mDelayed::Job Create (0.8ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:57:30', '--- !ruby/object:MakeNewHouse {}
+
+', '2010-04-25 01:57:30', 0, '2010-04-25 01:58:00', 0, NULL, NULL)[0m
+  [4;36;1mDelayed::Job Create (0.8ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2010-04-25 01:57:30', '--- !ruby/object:RandomStockValue {}
+
+', '2010-04-25 01:57:30', 0, '2010-04-25 01:57:40', 0, NULL, NULL)[0m
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 21:58:05) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering session/login
+Completed in 151ms (View: 81, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 21:58:07) [GET]
+
+NameError (undefined local variable or method `login_layout' for #<UsersController:0xb70962f0>):
+  app/controllers/users_controller.rb:22:in `new'
+
+Rendered rescues/_trace (166.9ms)
+Rendered rescues/_request_and_response (2.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 22:00:03) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 68ms (View: 40, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-24 22:00:17) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:check_if_we_need_a_login] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:00:17) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering session/login
+Completed in 58ms (View: 6, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:00:42) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 41ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:03:46) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 79ms (View: 32, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:03:58) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 46ms (View: 14, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:07:11) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 45ms (View: 16, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:07:16) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"sdgsdgsdgs", "password"=>"dgsdgsdgsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sdgsdgsdgs' AND "users"."password" = 'dgsdgsdgsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 36ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:07:35) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"sdgsdgsdgs", "password"=>"dgsdgsdgsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sdgsdgsdgs' AND "users"."password" = 'dgsdgsdgsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 42ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:08:33) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"sdgsdgsdgs", "password"=>"dgsdgsdgsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sdgsdgsdgs' AND "users"."password" = 'dgsdgsdgsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 103ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-24 22:08:38) [GET]
+
+ActionController::RoutingError (No route matches "/images/rails.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:08:40) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 88ms (View: 10, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:12:07) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:8: syntax error, unexpected kUNLESS_MOD, expecting kTHEN or ':' or '\n' or ';'
+    if user unless params[]
+                  ^
+/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered rescues/_trace (69.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:12:29) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:8: syntax error, unexpected kUNLESS_MOD, expecting kTHEN or ':' or '\n' or ';'
+    if user unless params[:login]=nil
+                  ^
+/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered rescues/_trace (132.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:12:30) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:8: syntax error, unexpected kUNLESS_MOD, expecting kTHEN or ':' or '\n' or ';'
+    if user unless params[:login]=nil
+                  ^
+/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered rescues/_trace (99.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:13:06) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (72.9ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:13:24) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:16: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (72.7ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:14:23) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (65.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:14:39) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (142.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:16:04) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 33ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 22:16:08) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 42ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:16:15) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 37ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:16:57) [GET]
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 38ms (View: 5, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-24 22:17:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/rails.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:17:05) [GET]
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 36ms (View: 4, DB: 4) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:17:30) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/session_controller.rb:14:in `[]'
+  app/controllers/session_controller.rb:14:in `login'
+
+Rendered rescues/_trace (70.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:19:16) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:17: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (168.3ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:25:27) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:15: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (75.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#login (for 127.0.0.1 at 2010-04-24 22:25:40) [GET]
+
+SyntaxError (/home/kirk/rails-workspace/game/app/controllers/session_controller.rb:16: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (67.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:25:59) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 46ms (View: 39, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:26:04) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:26:06) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 22:26:08) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 81ms (View: 29, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:26:22) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"sdfsds", "password"=>"dfsdfsd"}
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:26:30) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"kirk", "password"=>"password"}
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:27:39) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"kirk", "password"=>"password"}
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'kirk' AND "users"."password" = 'password') LIMIT 1[0m
+Redirected to http://localhost:3000/users/profile
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/session_controller.rb:16:in `[]'
+  app/controllers/session_controller.rb:16:in `login'
+
+Rendered rescues/_trace (91.3ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:27:51) [POST]
+  Parameters: {"authenticity_token"=>"1nwNqdPk8FgM5rZb1ddulg4in1M4tDUxetOIWRWw5v4=", "login"=>"kirk", "password"=>"password"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kirk' AND "users"."password" = 'password') LIMIT 1[0m
+Redirected to http://localhost:3000/users/profile
+Completed in 82ms (DB: 1) | 302 Found [http://localhost/login]
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-04-24 22:27:51) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/layout
+Rendering users/show
+  [4;35;1mRealEstate Load (8.2ms)[0m   [0mSELECT * FROM "real_estates" WHERE ("real_estates".user_id = 1) [0m
+  [4;36;1mBoughtStock Load (1.7ms)[0m   [0;1mSELECT * FROM "bought_stocks" WHERE ("bought_stocks".user_id = 1) [0m
+  [4;35;1mStock Load (1.1ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Completed in 235ms (View: 160, DB: 14) | 200 OK [http://localhost/users/profile]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:28:46) [GET]
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" IS NULL AND "users"."password" IS NULL) LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 33ms (View: 4, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:28:52) [POST]
+  Parameters: {"authenticity_token"=>"nPdr/GaiTvuEEru0KS9oaJ/uTje+GLUgANv4SBA/9Tc=", "login"=>"dfsdf", "password"=>"sdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dfsdf' AND "users"."password" = 'sdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 37ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:36:58) [POST]
+  Parameters: {"authenticity_token"=>"nPdr/GaiTvuEEru0KS9oaJ/uTje+GLUgANv4SBA/9Tc=", "login"=>"dfsdf", "password"=>"sdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dfsdf' AND "users"."password" = 'sdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 81ms (View: 53, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:37:03) [POST]
+  Parameters: {"authenticity_token"=>"nPdr/GaiTvuEEru0KS9oaJ/uTje+GLUgANv4SBA/9Tc=", "login"=>"dfsdf", "password"=>"sdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dfsdf' AND "users"."password" = 'sdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 85ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-24 22:37:06) [GET]
+
+ActionController::RoutingError (No route matches "/images/rails.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:37:10) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 23ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:37:53) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:37:59) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 35ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:38:34) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 54ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:39:13) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 96ms (View: 24, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:40:14) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 98ms (View: 45, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:40:50) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 295ms (View: 16, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:41:11) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 90ms (View: 13, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:41:24) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 89ms (View: 14, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:42:06) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 112ms (View: 62, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:46:20) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 95ms (View: 40, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 22:47:19) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 111ms (View: 17, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:47:26) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 95ms (View: 13, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:49:02) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 91ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:49:36) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 89ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:50:02) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 118ms (View: 37, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:51:43) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 40ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:52:20) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 191ms (View: 61, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:53:00) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 118ms (View: 36, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:53:22) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 86ms (View: 13, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:53:41) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 97ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:54:04) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 240ms (View: 13, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:55:12) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 178ms (View: 124, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:55:54) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 91ms (View: 36, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:56:06) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 87ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:59:25) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 84ms (View: 18, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:59:42) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 333ms (View: 5, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 22:59:58) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 167ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:00:34) [POST]
+  Parameters: {"authenticity_token"=>"hupe/S4cyMEhhQaIH91hbsMooak5wHXfDlfCX76IP6U=", "login"=>"sefsdgfsd", "password"=>"fsdfsdfsd"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'sefsdgfsd' AND "users"."password" = 'fsdfsdfsd') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 105ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:01:12) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:01:18) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 31ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:01:55) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 146ms (View: 21, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:03:37) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 84ms (View: 30, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:04:44) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 35ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:05:14) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 133ms (View: 12, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:05:27) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 121ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:05:46) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 89ms (View: 36, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:06:17) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 84ms (View: 6, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:09:09) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 55ms (View: 28, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:10:42) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 58ms (View: 25, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:13:09) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 51ms (View: 22, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:39:43) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 256ms (View: 198, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:41:23) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 52ms (View: 24, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:41:53) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 49ms (View: 23, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:46:43) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 41ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:46:49) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 45ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:47:41) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 44ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:47:50) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 70ms (View: 37, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:48:06) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 49ms (View: 22, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:49:45) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 50ms (View: 25, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:50:14) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 109ms (View: 25, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:50:17) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 97ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:50:20) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 43ms (View: 14, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:50:39) [POST]
+  Parameters: {"authenticity_token"=>"ACFEG0OUVMTJnnmb3q8jkU1yxGXivJPxAQY24Gew7y8=", "login"=>"dsafbgadsfbs", "password"=>"sadfbsdfbdfbs"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'dsafbgadsfbs' AND "users"."password" = 'sadfbsdfbdfbs') LIMIT 1[0m
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 60ms (View: 5, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-04-24 23:51:03) [GET]
+Rendering template within layouts/login_layout
+Rendering session/login
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:51:06) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 98ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:56:39) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 80ms (View: 39, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:57:12) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 48ms (View: 20, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:57:27) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 52ms (View: 29, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:57:34) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 108ms (View: 65, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:57:43) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 103ms (View: 48, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-24 23:58:23) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 109ms (View: 33, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:03:28) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 48ms (View: 20, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:03:48) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 48ms (View: 20, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:06:38) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 50ms (View: 21, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:07:47) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 54ms (View: 24, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:09:29) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 43ms (View: 19, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:09:41) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 36ms (View: 13, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:11:26) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:11:55) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:12:12) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:12:24) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 47ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:12:32) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:12:37) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 45ms (View: 21, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:12:46) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 41ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:13:11) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 13, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:13:27) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 45ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:13:50) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-25 00:14:33) [GET]
+Rendering template within layouts/login_layout
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]

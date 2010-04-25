@@ -10,6 +10,18 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	border:3px solid gray;
 	padding:0px 0px 50px;
 }
+
+.form{
+	position:absolute;
+	top:100px;
+	width:100%;
+}
+
+#new_user h2{
+		margin:0px;
+		font-style:italic;
+}
+
 .label_with_color{
 	color:#0099FF;
 	font-size:medium;
@@ -31,11 +43,11 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	height:50px;
 	}
 
-.note #flash{
+#flash{
 	color:green; 
 }
 
-.note h4, .contain_top_left h4, .contain_top_right h4, .contain_bottom_right h4, .contain_bottom_left h4{
+.note h4, .contain_top_left h4, .contain_top_right h4, .contain_bottom_right h4, .contain_bottom_left h4, #new_user h1, .right p, .left p, .form p, .stocks p{
 	margin:0px;
 }
 
@@ -112,11 +124,7 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	overflow:auto;
 }
 
-.right p, .left p{
-		margin:0px;
-}
-
-#real_estate_column hr{
+#real_estate_column hr, .form#login hr{
 	width:100px;
 }
 
@@ -171,10 +179,6 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	padding:0px;
 }
 
-.stocks p{
-	margin:0px;
-}
-
 #each_stock{
 	text-align:center;
 	width:250px;
@@ -211,12 +215,12 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 		color:blue;
 }
 
-#real_estate_column a:active{
+#real_estate_co.form#login{lumn a:active{
 	background-image:url('/images/button_down.png');
 }
 
 .stocks a{
-		text-decoration:none;
+		text-deco.form#login{ration:none;
 		width:78px;
 		color:black;
 		display:inline-block;

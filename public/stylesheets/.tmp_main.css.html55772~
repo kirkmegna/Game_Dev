@@ -1,0 +1,281 @@
+<html><h1>The H1 tag looks like this</h1>
+<p>The paragraph tag after an H1 tag looks like this</p>
+<h2>The H2 tag looks like this</h2>
+<p>The paragraph tag after an H2 tag looks like this</p>
+<h3>The H3 tag looks like this</h3>
+<p>The paragraph tag after an H3 tag looks like this</p>
+<h4>The H4 tag looks like this</h4>
+<p>The paragraph tag after an H4 tag looks like this</p>
+<h5>The H5 tag looks like this</h5>
+<p>The paragraph tag after an H5 tag looks like this</p>
+<ol>
+<li><strong>This is a strong element in an ordered list</strong></li>
+<li><i>This is an italic element in an ordered list</i></li>
+<li><b>This is a bold element in an ordered list</b></li>
+<li><em>This is an emphasized element in an ordered list</em></li>
+<li>This is a regular element in an ordered list</li>
+</ol>
+<ul>
+<li><strong>This is a strong element in an unordered list</strong></li>
+<li><i>This is an italic element in an unordered list</i></li>
+<li><b>This is a bold element in an unordered list</b></li>
+<li><em>This is an emphasized element in an unordered list</em></li>
+<li>This is a regular element in an unordered list</li>
+</ul>
+<blockquote>The block quote element looks like this</blockquote>
+<pre>The pre element looks like this</pre>
+<code>The code element looks like this</code>
+<br/>
+<span>The span element looks like this</span>
+<br/>
+<a href="#">The anchor element looks like this</a>
+<br/>
+<br/>
+<div style="float:left;margin:20px;width:200px;">Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.</div>
+<div style="float:left;margin:20px;width:400px;">Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.</div>
+<div style="float:left;margin:20px;width:600px;">Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.</div><style>body {margin:0px; background-color:black; font-family: "Times New Roman", Times, serif; text-align:center;}
+
+#page {
+	position:relative;
+	width:600px;
+	height:450px;
+	color:white;
+	background-color:#202020;	
+    margin:25px auto;
+	border:3px solid gray;
+	padding:0px 0px 50px;
+}
+
+.form{
+	position:absolute;
+	top:100px;
+	width:100%;
+}
+
+.form h1, .form h5{
+
+.label_with_color{
+	color:#0099FF;
+	font-size:medium;
+	font-weight:bold;
+}
+
+.content_with_color{
+	color:green;
+}
+	
+.note{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:600px;
+	background-color:#151515;
+	vertical-align:middle;
+	padding:0px;
+	height:50px;
+	}
+
+#flash{
+	color:green; 
+}
+
+.note h4, .contain_top_left h4, .contain_top_right h4, .contain_bottom_right h4, .contain_bottom_left h4{
+	margin:0px;
+}
+
+.menu {
+	position:absolute;
+	bottom:15px;
+	width:600px;
+}
+
+.menu a, li{
+	display:inline;
+	list-style-type:none;
+	color:white;
+	margin:5px;
+	text-decoration:none;
+}
+
+.contain_top_left{
+	top:125px;
+	left:90px;
+}
+
+.contain_top_right{
+	top:125px;
+	right:90px;
+}
+
+.contain_bottom_right{
+	bottom:90px;
+	right:90px;	
+}
+
+.contain_bottom_left{
+	bottom:90px;
+	left:90px;
+}
+
+.contain_top_left, .contain_top_right, .contain_bottom_right, .contain_bottom_left{
+	width:200px;
+	border:3px solid #AAAAAA;
+	background-color:black;
+	color:#0099FF;
+	height:auto;
+	position:absolute;
+	padding:5px 0px;
+}
+
+.contain_top_left p, .contain_top_right p, .contain_bottom_right p, .contain_bottom_left p{
+	color:green;
+	margin:0px;
+}
+
+.left{
+	width:250px;
+	height:350px;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	top:85px;
+	left:33px;
+	padding:5px 0px;
+	overflow:auto;
+}
+
+.right{
+	width:250px;
+	height:350px;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	top:85px;
+	right:33px;
+	padding:5px 0px;
+	overflow:auto;
+}
+
+.right p, .left p, .form p, .stocks p{
+		margin:0px;
+}
+
+#real_estate_column hr, .form#login hr{
+	width:100px;
+}
+
+#real_estate_left{
+	width:250px;
+	left:33px;
+	top:37px;
+}
+
+#real_estate_right{
+	width:250px;
+	right:33px;
+	top:37px;
+}
+
+#work{
+	width:200px;
+	left:90px;
+	top:80px;
+}
+
+#assets{
+	width:200px;
+	right:90px;
+	top:80px;
+}
+
+#progress{
+	width:200px;
+	right:90px;
+	bottom:190px;
+}
+
+#cash{
+	width:200px;
+	left:90px;
+	bottom:190px;
+}
+
+.title{
+	position:absolute;
+}
+
+.stocks{
+	width:400px;
+	height:auto;
+	border:3px solid #AAAAAA;
+	position:absolute;
+	background-color:black;
+	bottom:50px;
+	left:100px;
+	padding:0px;
+}
+
+#each_stock{
+	text-align:center;
+	width:250px;
+	margin:auto;
+	padding:3px;
+	border:1px solid black;
+}
+
+#each_house{
+	text-align:center;
+	width:100px;
+	margin:10px auto;
+	border:1px solid #0099FF;
+}
+
+.left a, .right a{
+		text-decoration:none;
+		width:78px;
+		color:black;
+		display:inline-block;
+		height:24px;
+}
+
+#real_estate_column a:link{
+	background-image:url('/images/button_up.png');
+}
+
+#real_estate_column a:visited{
+	background-image:url('/images/button_up.png');
+}
+		
+#real_estate_column a:hover{
+	background-image:url('/images/button_over.png');
+		color:blue;
+}
+
+#real_estate_co.form#login{lumn a:active{
+	background-image:url('/images/button_down.png');
+}
+
+.stocks a{
+		text-deco.form#login{ration:none;
+		width:78px;
+		color:black;
+		display:inline-block;
+		height:24px;
+}
+
+.stocks a:link{
+	background-image:url('/images/button_up.png');
+}
+
+.stocks a:visited{
+	background-image:url('/images/button_up.png');
+}
+		
+.stocks a:hover{
+	background-image:url('/images/button_over.png');
+		color:blue;
+}
+
+.stocks a:active{
+	background-image:url('/images/button_down.png');
+}</style></html>

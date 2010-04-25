@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :layout => false
+    render :layout => "login_layout"
   end
 
   def create
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to :action => :show      
     else
       #TODO: maybe set a flash variable?
-      render :action => :new, :layout => false
+      render :action => :new, :layout => "login_layout"
     end
 
   end

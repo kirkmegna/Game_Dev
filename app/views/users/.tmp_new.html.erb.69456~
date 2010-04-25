@@ -1,0 +1,21 @@
+<% form_for(@user) do |f| %>
+<div>
+	<%= f.label :login %>
+	<%= f.text_field :login %>
+</div>
+<div>
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+</div>
+<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</div>
+<div>
+	<%= f.label :job %>
+	<%= f.select :job, User::JOB_TYPES %>
+</div>
+<div>
+	<%= f.submit "Register" %>
+</div>
+<% end %>
