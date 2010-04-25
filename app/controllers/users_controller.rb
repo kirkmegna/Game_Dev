@@ -26,16 +26,17 @@ class UsersController < ApplicationController
     @user = User.new(params[:user].merge({:job_hours => 5, :cash => 500}))
     if @user.save
       session[:user_id] = @user.id
-      redirect_to :action => :show      
+      flash[:note] = "New user account successfully created"
+      redirect_to rules_pages_path      
     else
-      #TODO: maybe set a flash variable?
+      flash[:note]="Sorry! Something is wrong with the credentials you entered."
       render :action => :new, :layout => "login_layout"
     end
 
   end
 
   def delete
-end
+  end
 
   def profile
     @user = current_user

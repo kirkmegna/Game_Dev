@@ -1,0 +1,47 @@
+<div id="cash" class="title">
+	<h4>Your Money</h4>
+</div>
+	
+<div class="contain_bottom_left">
+	<h4>Monthly Cashflow</h4>
+	<p><%=number_to_currency @user.cashflow%></p>
+	<br/>
+	<h4>Total Cash On Hand</h4>
+	<p><%=number_to_currency @user.cash%></p>
+</div>
+
+<div id="assets" class="title">
+	<h4>Your Assets</h4>
+</div>
+
+<div class="contain_top_right">
+	<h4>Stock Value</h4>
+	<p><%=number_to_currency @user.net_stock_value%></p>
+	<br/>
+	<h4>Real Estate Value</h4>
+	<p><%=number_to_currency @user.net_real_estate_value%></p>
+</div>
+
+<div id="progress" class="title">
+	<h4>Progress</h4>
+</div>
+
+<div class="contain_bottom_right">
+	<h4>Passive Income</h4>
+	<p><%=number_to_currency @user.monthly_real_estate_cashflow%></p>
+	<br/>
+	<h4>Expenses</h4>
+	<p><%=number_to_currency @user.expenses%></p>
+	</div>
+
+<div id="work" class="title">
+	<h4>Work Info</h4>
+</div>
+
+<div class="contain_top_left">
+	<h4>Hourly Payrate</h4>
+	<p><%=number_to_currency @user.payrate%></p>
+	<br/>
+	<h4>Hours You Work</h4>
+	<p><%=@user.job_hours%></p>
+</div>

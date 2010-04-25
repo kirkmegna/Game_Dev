@@ -10,9 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.real_estate "real_estate", :controller => :real_estate, :action => :index
   map.buy_real_estate "real_estate/:id/buy", :controller => :real_estate, :action => :buy
   map.sell_real_estate "real_estate/:id/sell", :controller => :real_estate, :action => :sell
+  map.rules_pages "pages/rules", :controller => :pages, :action => :rules
 
- 
-  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -21,7 +21,6 @@
 		<li><%=link_to "Stocks", stocks_path %></li>
 		<li><%=link_to "Real Estate", real_estate_path%></li>
 		<li><%=link_to "View Your Profile", profile_users_path%></li>
-		<li><%=link_to "Instructions", rules_pages_path%></li>
 		</div>
 		</div>		
 	</body>

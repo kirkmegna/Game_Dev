@@ -11,6 +11,15 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	padding:0px 0px 50px;
 }
 
+.rules{
+	padding:0px 5px 0px 5px;
+	text-align:justify;
+	margin:auto;
+	width:500px;
+	height:300px;
+	overflow:auto;
+}
+
 .form{
 	position:absolute;
 	top:100px;
@@ -47,7 +56,16 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	color:green; 
 }
 
-.note h4, .contain_top_left h4, .contain_top_right h4, .contain_bottom_right h4, .contain_bottom_left h4, #new_user h1, .right p, .left p, .form p, .stocks p{
+.note h4, 
+.contain_top_left h4, 
+.contain_top_right h4, 
+.contain_bottom_right h4, 
+.contain_bottom_left h4, 
+#new_user h1, 
+.right p, 
+.left p, 
+.form p, 
+.stocks p{
 	margin:0px;
 }
 
@@ -85,7 +103,10 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	left:90px;
 }
 
-.contain_top_left, .contain_top_right, .contain_bottom_right, .contain_bottom_left{
+.contain_top_left, 
+.contain_top_right, 
+.contain_bottom_right, 
+.contain_bottom_left{
 	width:200px;
 	border:3px solid #AAAAAA;
 	background-color:black;
@@ -95,7 +116,10 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	padding:5px 0px;
 }
 
-.contain_top_left p, .contain_top_right p, .contain_bottom_right p, .contain_bottom_left p{
+.contain_top_left p, 
+.contain_top_right p, 
+.contain_bottom_right p, 
+.contain_bottom_left p{
 	color:green;
 	margin:0px;
 }
@@ -237,7 +261,7 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 		
 .stocks a:hover{
 	background-image:url('/images/button_over.png');
-		color:blue;
+	color:blue;
 }
 
 .stocks a:active{

@@ -1,7 +1,7 @@
+
 <div id="new_user" class="form">
 	<h1>ROLLIN' in CA$H</h1>
 	<h2>Registration Page</h2>
-	
 <% form_for(@user) do |f| %>
 	<p>Login ID:</p>
 	<%= f.text_field :login %>
