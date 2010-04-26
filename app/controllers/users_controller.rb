@@ -15,6 +15,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    current_user.job_hours = 0
+    current_user.save
+    flash[:note]="Congratulations! You have retired and won the game."
+    redirect_to :action => :profile
   end
 
   def new

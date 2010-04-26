@@ -1,0 +1,30 @@
+	<div id="real_estate_left" class="title">
+		<h4>Current Real Estate you Own</h4>
+	</div>
+	
+	<div id="real_estate_column" class="left">
+			<% @real_estate.each do |home|%>
+			<p class="label_with_color"><%=home.style%></p>
+			<p class="content_with_color">value: <%=number_to_currency home.cost%></p>
+			<p class="content_with_color">cashflow: <%=number_to_currency home.total_rent%></p>
+			<%=link_to "Sell", sell_real_estate_path(home.id)%><hr/>
+			<%end%>
+	</div>
+	
+	<div id="real_estate_right" class="title">
+		<h4>Houses Available For Purchase</h4>
+	</div>
+
+	<div id="real_estate_column" class="right">
+		<% @home.each do |home|%>
+		<p class="label_with_color"><%=home.style%></p>
+		<p class="content_with_color">Cost: <%=number_to_currency home.cost%></p>
+		<p class="content_with_color">Cashflow: <%=number_to_currency home.cashflow%></p>
+		<%=link_to "Purchase", buy_real_estate_path(home.id)%><hr/>
+		<%end%>
+        <%if @home.empty?%>
+		   Sorry! There are no homes available for purchase at this time.<br/>
+		   Try again later.
+		<%end%>
+</div>
+<br/>

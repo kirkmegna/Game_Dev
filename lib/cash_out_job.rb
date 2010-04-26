@@ -4,6 +4,6 @@ class CashOutJob
       user.cash += user.cashflow
       user.save
     end
-   Delayed::Job.enqueue CashOutJob.new, 0, 30.seconds.from_now
+   Delayed::Job.enqueue CashOutJob.new, 0, 2.hours.from_now
   end
 end

@@ -11,6 +11,12 @@ body {margin:0px; background-color:black; font-family: "Times New Roman", Times,
 	padding:0px 0px 50px;
 }
 
+#retire{
+	position:absolute;
+	bottom:50px;
+	width:100%;
+}
+
 .rules{
 	padding:0px 5px 0px 5px;
 	text-align:justify;
@@ -220,7 +226,8 @@ h2{
 }
 
 .left a, 
-.right a{
+.right a,
+#retire a{
 		text-decoration:none;
 		width:78px;
 		color:black;
@@ -228,20 +235,20 @@ h2{
 		height:24px;
 }
 
-#real_estate_column a:link{
+#real_estate_column a:link, #retire a:link{
 	background-image:url('/images/button_up.png');
 }
 
-#real_estate_column a:visited{
+#real_estate_column a:visited, #retire a:visited{
 	background-image:url('/images/button_up.png');
 }
 		
-#real_estate_column a:hover{
+#real_estate_column a:hover, #retire a:hover{
 	background-image:url('/images/button_over.png');
-		color:blue;
+	color:blue;
 }
 
-#real_estate_column a:active{
+#real_estate_column a:active, #retire a:active{
 	background-image:url('/images/button_down.png');
 }
 

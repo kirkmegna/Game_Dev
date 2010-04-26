@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   PAY_RATES = {"high" => 35, "middle" => 22, "low" => 10}
   EXPENSES = {"high" => 7740, "middle" =>3840, "low" =>960}
   JOB_HOURS = {"high" => 12, "middle" =>10, "low" =>8}
-  PROFESSION = {"high" => "Doctor", "middle" =>"Graphic Designer", "low" =>"Burger Flipper"}
   
   validates_inclusion_of :job, :in => JOB_TYPES
 

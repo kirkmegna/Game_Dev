@@ -6,6 +6,6 @@ class RandomStockValue
         stock.save unless stock.value <= 0
       end
     end
-   Delayed::Job.enqueue RandomStockValue.new, 0, 10.seconds.from_now
+   Delayed::Job.enqueue RandomStockValue.new, 0, 30.seconds.from_now
   end
 end

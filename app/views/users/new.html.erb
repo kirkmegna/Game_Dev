@@ -15,7 +15,7 @@
 	<p>User name is case sensitive and can be 3-20 characters <br/> long using letters, numbers, hyphens, periods, or underscores.</p>
 	<br/>
 	<p>Profession:
-	<%= f.select :job, User::JOB_TYPES %></p>
+	<%= f.select :job, [['Doctor','high'],['Manager','middle'],['Waiter','low']] %></p>
 	<br/>
 	<%= f.submit "Register" %>
 <% end %>

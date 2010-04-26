@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.buy_real_estate "real_estate/:id/buy", :controller => :real_estate, :action => :buy
   map.sell_real_estate "real_estate/:id/sell", :controller => :real_estate, :action => :sell
   map.rules_pages "pages/rules", :controller => :pages, :action => :rules
+  map.retire "retire", :controller => :users, :action => :update
 
   # The priority is based upon order of creation: first created -> highest priority.
 
