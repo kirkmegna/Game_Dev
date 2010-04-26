@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.root :controller => :session
+  map.root "login", :controller => :session
 
   map.login "login", :controller => :session, :action => :login
   
